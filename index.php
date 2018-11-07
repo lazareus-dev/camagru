@@ -8,7 +8,7 @@
         <?php include("top_nav.php"); ?>
         <?php
             if (isset($_POST['login']))
-                echo "Hello " . $_POST['login'];
+                echo "Hello " . htmlspecialchars($_POST['login']);
             else
                 include("connection.php");
         ?> 
