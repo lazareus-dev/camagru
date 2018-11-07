@@ -2,22 +2,28 @@ body {
   background-color: #fafafa;
 	padding: 0%;
 	margin: 0%;
-}
-
-/* Create a sticky/fixed navbar */
-#navbar {
-  overflow: hidden;
-  padding-top: 30px 10px; /* Large padding which will shrink on scroll (using JS) */
-  transition: 0.4s; /* Adds a transition effect when the padding is decreased */
-  position: fixed; /* Sticky/fixed navbar */
-  width: 100%;
-  top: 0; /* At the top */
-  z-index: 99; 
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-/* Style the navbar links */
-#navbar a {
+.main_content {
+  max-width: 1000px;
+}
+
+/* Style the header with a grey background and some padding */
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+}
+
+.header-content {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1000px;
+}
+
+/* Style the header links */
+.header a {
   float: left;
   color: black;
   text-align: center;
@@ -28,53 +34,41 @@ body {
   border-radius: 4px;
 }
 
-/* Style the logo */
-#navbar #logo {
-  font-size: 35px;
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.header a.logo {
+  font-size: 25px;
   font-weight: bold;
-  transition: 0.4s;
 }
 
-/* Links on mouse-over */
-#navbar a:hover {
+/* Change the background color on mouse-over */
+.header a:hover {
   background-color: #ddd;
   color: black;
 }
 
-/* Style the active/current link */
-#navbar a.active {
-  background-color: dodgerblue;
-  color: white;
-}
-
-/* Display some links to the right */
-#navbar-right {
+/* Float the link section to the right */
+.header-right {
   float: right;
 }
 
-/* Add responsiveness - on screens less than 580px wide, display the navbar vertically instead of horizontally */
-@media screen and (max-width: 580px) {
-  #navbar {
-    padding: 20px 10px !important; /* Use !important to make sure that JavaScript doesn't override the padding on small screens */
-  }
-  #navbar a {
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */ 
+@media screen and (max-width: 500px) {
+  .header a {
     float: none;
     display: block;
     text-align: left;
   }
-  #navbar-right {
+  .header-right {
     float: none;
   }
 }
 
 footer {
-    position: fixed;
-    left: 0;
+  position: fixed;
+  left: 0;
 	bottom: 0;
-	width: 100%;
-	padding-right: 5vw;
-    background-color: #455A64;
-    color: white;
-	text-align: right;
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 100%;
+  background-color: #455A64;
+  color: white;
+  text-align: center;
 }
