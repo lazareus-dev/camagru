@@ -1,19 +1,21 @@
 body {
   background-color: #fafafa;
 	padding: 0%;
-	margin: 0%;
+  margin: 0%;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.main_content {
-  max-width: 1000px;
+.main-content {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500px;
+  text-align: center;
 }
 
-/* Style the header with a grey background and some padding */
 .header {
   overflow: hidden;
   background-color: #f1f1f1;
-  padding: 20px 10px;
+  padding: 10px 10px;
 }
 
 .header-content {
@@ -27,7 +29,6 @@ body {
   float: left;
   color: black;
   text-align: center;
-  padding: 12px;
   text-decoration: none;
   font-size: 18px; 
   line-height: 25px;
@@ -35,9 +36,10 @@ body {
 }
 
 /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
-.header a.logo {
-  font-size: 25px;
-  font-weight: bold;
+#logo {
+  display: block;
+  margin-top: 10%;
+  max-width: 100px;
 }
 
 /* Change the background color on mouse-over */
@@ -48,6 +50,8 @@ body {
 
 /* Float the link section to the right */
 .header-right {
+  display: flex;
+  flex-direction: row;
   float: right;
 }
 
@@ -71,4 +75,57 @@ footer {
   background-color: #455A64;
   color: white;
   text-align: center;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #455A64;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+}
+
+input[type=submit]:hover {
+  background-color: rgb(56, 75, 83);
+}
+
+.connect-form {
+  font-size: 14px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  max-width: 500px;
+  padding: 20px;
+}
+
+.connect-form h2 {
+  text-align: center;
+}
+
+.nav-container {
+  display: inline-block;
+  max-width: 50px;
+  overflow: hidden;
+  margin: 0;
+}
+
+.icon-nav {
+  display: block;
+  max-width: 50px;
 }
