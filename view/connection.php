@@ -13,7 +13,7 @@
 </div>
 
 <div class="connect-form">
-    <p>No Account ? <a href="signup.php">Signup here !</a></p>
+    <p>No Account ? <a href="/index.php?action=signup">Signup here !</a></p>
 </div>
 
 <?php $content = ob_get_clean(); ?>

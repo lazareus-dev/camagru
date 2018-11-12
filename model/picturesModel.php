@@ -1,6 +1,6 @@
 <?php
 
-require("dbConnect.php");
+require($_ROOT."/model/dbConnect.php");
 
 function getPictures()
 {
