@@ -1,7 +1,11 @@
 <?php
-session_start();
+if (!isset($_SESSION))
+{
+    session_start();
+    $_SESSION['usr_id'] = -1;
+}
 $_ROOT = getcwd();
-require($_ROOT."/controller/controller.php");
+require_once($_ROOT."/controller/controller.php");
 
 try {
 

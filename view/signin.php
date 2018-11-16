@@ -1,4 +1,5 @@
 <?php ob_start(); ?>
+
 <?php if (isset($login_first)){ ?>
 <h2>Please login first</h2>
 <?php } else { ?>
@@ -6,13 +7,14 @@
 <?php } ?>
 <div class="connect-form">
     <form action="index.php" method="post">
+        
         <label for="login">Login</label>
         <input type="text" id="login" name="login">
 
         <label for="passwd">Password</label>
         <input type="password" id="passwd" name="passwd">
 
-        <input type="submit" value="connect">
+        <input type="submit" name="signin" value="connect">
     </form>
 </div>
 

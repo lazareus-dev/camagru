@@ -42,7 +42,10 @@ function signupForm()
 {
     global $_ROOT;
 
-    require($_ROOT."/view/signup.php");
+    if (isset($_POST['signup']))
+        require($_ROOT."/middleware/signup_process.php");
+    else
+        require($_ROOT."/view/signup.php");
 }
 
 function montagePage()
