@@ -9,17 +9,26 @@ class UserManager extends Manager
         $db = $this->dbConnect();
         $req = $db->query('SELECT * FROM USER');
 
-        return ($req);
+        return $req;
+    }
+
+    public function getUser($usr_login, $hashpass)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT * FROM USER WHERE usr_login=? AND usr_passwd=?');
+        $req->execute(array($usr_login, $hashpass));
+
+        return $req;
     }
 
     public function createUser($usr_login, $usr_mail, $hashpass)
     {
         $db = $this->dbConnect();
-        $rq = $db->prepare('INSERT INTO USER(usr_login, usr_mail, usr_passwd)
+        $req = $db->prepare('INSERT INTO USER(usr_login, usr_mail, usr_passwd)
         VALUES(?, ?, ?)');
-        $affectedLines = $rq->execute(array($usr_login, $usr_mail, $hashpass));
+        $affectedLines = $req->execute(array($usr_login, $usr_mail, $hashpass));
 
-        return ($affectedLines);
+        return $affectedLines;
     }
 
     public function checkIfUserExists($usr_login, $usr_mail)
@@ -34,7 +43,7 @@ class UserManager extends Manager
         $req = $db->prepare('SELECT * FROM USER WHERE usr_login=?');
         $req->execute(array($usr_login));
 
-        return ($req->rowCount());
+        return $req->rowCount();
     }
 
     private function checkIfMailExists($usr_mail)
@@ -43,6 +52,6 @@ class UserManager extends Manager
         $req = $db->prepare('SELECT * FROM USER WHERE usr_mail=?');
         $req->execute(array($usr_mail));
 
-        return ($req->rowCount());
+        return $req->rowCount();
     }
 }

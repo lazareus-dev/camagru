@@ -34,8 +34,12 @@ function profilePage()
 function signinForm()
 {
     global $_ROOT;
-
-    require($_ROOT."/view/signin.php");
+    if (isset($_SESSION['usr_id']) && $_SESSION['usr_id'] > 0)
+        header('Location: /index.php?action=profile');
+    else if (isset($_POST['signin']))
+        require($_ROOT."/middleware/signin_process.php");
+    else
+        require($_ROOT."/view/signin.php");
 }
 
 function signupForm()
