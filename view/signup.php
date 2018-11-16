@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 
+<h2>Welcome newbie!</h2>
 <div class="connect-form">
-    <h2>Welcome newbie!</h2>
     <form action="index.php" method="post">
         <label for="email">E-mail</label>
         <input type="email" id="email" name="email">

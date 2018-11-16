@@ -2,7 +2,7 @@
 
 require_once($_ROOT."/model/Manager.php");
 
-class PicturesManager extends Manager
+class PictureManager extends Manager
 {
     public function getPictures()
     {

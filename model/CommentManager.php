@@ -2,7 +2,7 @@
 
 require_once($_ROOT."/model/Manager.php");
 
-class CommentsManager extends Manager
+class CommentManager extends Manager
 {
     public function postComment($usr_id, $pic_id, $comment)
     {

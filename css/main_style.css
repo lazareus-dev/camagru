@@ -16,17 +16,36 @@ body {
   overflow: hidden;
   background-color: #f1f1f1;
   padding: 10px 10px;
+  margin-bottom: 10px;
 }
 
 .header-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
   margin-left: auto;
   margin-right: auto;
   max-width: 1000px;
 }
 
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+#logo {
+  max-width: 100px;
+}
+
+.header-center {
+  margin-left: 5%
+}
+
+/* Float the link section to the right */
+.header-right {
+  display: flex;
+  flex-direction: row;
+}
+
 /* Style the header links */
 .header a {
-  float: left;
   color: black;
   text-align: center;
   text-decoration: none;
@@ -35,24 +54,10 @@ body {
   border-radius: 4px;
 }
 
-/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
-#logo {
-  display: block;
-  margin-top: 10%;
-  max-width: 100px;
-}
-
 /* Change the background color on mouse-over */
 .header a:hover {
   background-color: #ddd;
   color: black;
-}
-
-/* Float the link section to the right */
-.header-right {
-  display: flex;
-  flex-direction: row;
-  float: right;
 }
 
 /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */ 
@@ -120,4 +125,14 @@ input[type=submit]:hover {
 .icon-nav {
   display: block;
   max-width: 50px;
+}
+
+#logout {
+  max-width: 23px;
+  margin: 12px;
+}
+
+.nodecolink {
+  text-decoration: none;
+  color: #ccc;
 }

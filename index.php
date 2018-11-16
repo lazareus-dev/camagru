@@ -1,6 +1,6 @@
 <?php
+session_start();
 $_ROOT = getcwd();
-
 require($_ROOT."/controller/controller.php");
 
 try {
@@ -8,9 +8,20 @@ try {
 if (isset($_GET['action']))
 {
     if ($_GET['action'] == 'signup')
-        require($_ROOT."/view/signup.php");
+        signupForm();
     else if ($_GET['action'] == 'signin')
-        require($_ROOT."/view/connection.php");
+        signinForm();
+    else if ($_GET['action'] == 'montage')
+        montagePage();
+    else if ($_GET['action'] == 'profile')
+        profilePage();
+    else if ($_GET['action'] == 'settings')
+        settingsPage();
+    else if ($_GET['action'] == 'logout')
+    {
+        session_destroy();
+        displayPictures();
+    }
     else if ($_GET['action'] == 'addComment')
     {
         if (isset($_SESSION['usr_id']) && $_SESSION['usr_id'] > 0)

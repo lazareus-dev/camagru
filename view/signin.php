@@ -1,5 +1,9 @@
 <?php ob_start(); ?>
-
+<?php if (isset($login_first)){ ?>
+<h2>Please login first</h2>
+<?php } else { ?>
+<h2>Welcome back</h2>
+<?php } ?>
 <div class="connect-form">
     <form action="index.php" method="post">
         <label for="login">Login</label>
