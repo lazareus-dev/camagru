@@ -13,8 +13,13 @@ function settingsPage()
         signinForm($login_first);
         return ;
     }
-
-    require($_ROOT."/view/settings.php");
+    if (isset($_POST['apply']))
+        ;
+    else
+    {
+        require($_ROOT."/middleware/settings_getter.php");
+        require($_ROOT."/view/settings.php");
+    }
 }
 
 function profilePage()
