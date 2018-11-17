@@ -31,11 +31,12 @@ body {
 
 /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
 #logo {
-  max-width: 100px;
+  margin-top: 10px;
+  max-width: 120px;
 }
 
 .header-center {
-  margin-left: 5%
+  margin-left: 4%
 }
 
 /* Float the link section to the right */

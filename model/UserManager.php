@@ -37,7 +37,7 @@ class UserManager extends Manager
         || $this->checkIfMailExists($usr_mail));
     }
 
-    private function checkIfLoginExists($usr_login)
+    public function checkIfLoginExists($usr_login)
     {
         $db = $this->dbConnect();
         $req = $db->prepare('SELECT * FROM USER WHERE usr_login=?');
@@ -53,5 +53,11 @@ class UserManager extends Manager
         $req->execute(array($usr_mail));
 
         return $req->rowCount();
+    }
+
+    public function get_usr_id($user_req)
+    {
+        $usr_datas = $user_req->fetch();
+        return ($usr_datas['usr_id']);
     }
 }

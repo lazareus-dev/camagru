@@ -9,8 +9,8 @@ function settingsPage()
 
     if (!isset($_SESSION['usr_id']) || $_SESSION['usr_id'] < 1)
     {
-        $login_first = 1;
-        require($_ROOT."/view/signin.php");
+        $login_first = true;
+        signinForm($login_first);
         return ;
     }
 
@@ -23,17 +23,18 @@ function profilePage()
 
     if (!isset($_SESSION['usr_id']) || $_SESSION['usr_id'] < 1)
     {
-        $login_first = 1;
-        require($_ROOT."/view/signin.php");
+        $login_first = false;
+        signinForm($login_first);
         return ;
     }
 
     require($_ROOT."/view/profile.php");
 }
 
-function signinForm()
+function signinForm($login_first)
 {
     global $_ROOT;
+
     if (isset($_SESSION['usr_id']) && $_SESSION['usr_id'] > 0)
         header('Location: /index.php?action=profile');
     else if (isset($_POST['signin']))
@@ -46,6 +47,8 @@ function signupForm()
 {
     global $_ROOT;
 
+    if (isset($_SESSION['usr_id']) && $_SESSION['usr_id'] > 0)
+        header('Location: /index.php?action=profile');
     if (isset($_POST['signup']))
         require($_ROOT."/middleware/signup_process.php");
     else
@@ -58,8 +61,8 @@ function montagePage()
 
     if (!isset($_SESSION['usr_id']) || $_SESSION['usr_id'] < 1)
     {
-        $login_first = 1;
-        require($_ROOT."/view/signin.php");
+        $login_first = true;
+        signinForm($login_first);
         return ;
     }
 

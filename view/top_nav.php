@@ -1,7 +1,7 @@
 <div class="header">
     <div class="header-content">
         <a  href="/index.php">
-          <img id="logo" src="/public/images/instagram.png" alt="home"/>
+          <img id="logo" src="/public/images/lazygram-logo.png" alt="home"/>
         </a>
         <div class="header-center">
             <a  href="/index.php?action=montage">

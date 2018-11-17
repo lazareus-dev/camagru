@@ -1,12 +1,12 @@
 <?php ob_start(); ?>
 
-<?php if (isset($login_first)){ ?>
+<?php if (isset($login_first) && $login_first == true){ ?>
 <h2>Please login first</h2>
 <?php } else { ?>
 <h2>Welcome back</h2>
 <?php } ?>
 <div class="connect-form">
-    <form action="index.php" method="post">
+    <form action="index.php?action=signin" method="POST">
         
         <label for="login">Login</label>
         <input type="text" id="login" name="login">

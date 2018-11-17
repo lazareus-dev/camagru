@@ -5,23 +5,24 @@ require_once($_ROOT."/model/UserManager.php");
 $login = "";
 $passwd = "";
 
-$user = new UserManager();
+$userMgmt = new UserManager();
 
 if (isset($_POST['signin']))
 {
     if (isset($_POST['login']) && isset($_POST['passwd']))
     {
+        $passwd = hash('Whirlpool', $_POST['passwd']);
         $login = htmlspecialchars($_POST['login']);
-        if ($user->checkIfLoginExists($login))
+        $user_info = $userMgmt->getUser($login, $passwd);
+        if ($user_info->rowCount() == 0)
         {
-            $message='Login does not exists';
+            $message='Wrong Login or Password';
             echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
             require($_ROOT."/view/signin.php");
         }
         else
         {
-            $passwd = password_hash($_POST['passwd'], PASSWORD_DEFAULT);
-            $user->createUser($login, $email, $passwd);
+            $_SESSION['usr_id'] = $userMgmt->get_usr_id($user_info);
             header('Location: /index.php');
         }
     }

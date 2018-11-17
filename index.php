@@ -1,9 +1,6 @@
 <?php
 if (!isset($_SESSION))
-{
     session_start();
-    $_SESSION['usr_id'] = -1;
-}
 $_ROOT = getcwd();
 require_once($_ROOT."/controller/controller.php");
 
@@ -14,7 +11,7 @@ if (isset($_GET['action']))
     if ($_GET['action'] == 'signup')
         signupForm();
     else if ($_GET['action'] == 'signin')
-        signinForm();
+        signinForm(0);
     else if ($_GET['action'] == 'montage')
         montagePage();
     else if ($_GET['action'] == 'profile')

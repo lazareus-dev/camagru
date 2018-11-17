@@ -22,7 +22,7 @@ if (isset($_POST['signup']))
         }
         else
         {
-            $passwd = password_hash($_POST['passwd'], PASSWORD_DEFAULT);
+            $passwd = hash('Whirlpool', $_POST['passwd']);
             $user->createUser($login, $email, $passwd);
             header('Location: /index.php');
         }
