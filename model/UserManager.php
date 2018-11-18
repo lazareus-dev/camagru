@@ -55,9 +55,18 @@ class UserManager extends Manager
         return $req->rowCount();
     }
 
-    public function get_usr_id($user_req)
+    public function getUserId($user_req)
     {
         $usr_datas = $user_req->fetch();
         return ($usr_datas['usr_id']);
+    }
+
+    public function getUserSettings($usr_id)
+    {
+        $db = $this->dbConnect();
+        $usr_settings = $db->prepare('SELECT usr_login, usr_mail, usr_notif FROM USER WHERE usr_id=?');
+        $usr_settings->execute(array($usr_id));
+
+        return $usr_settings;
     }
 }

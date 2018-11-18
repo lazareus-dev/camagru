@@ -150,8 +150,8 @@ input[type=submit]:hover {
 }
 
 .settings-form label {
-  display: inline-block;
   width: 50%;
+  margin-right: 10px;
   text-align: right;
 }
 
@@ -159,7 +159,6 @@ input[type=submit]:hover {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
-  display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
@@ -168,5 +167,5 @@ input[type=submit]:hover {
 .input-block {
   display: flex;
   flex-direction: row;
-  justify-items: baseline;
+  align-items: center;
 }

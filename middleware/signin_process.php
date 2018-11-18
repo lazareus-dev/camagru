@@ -22,7 +22,7 @@ if (isset($_POST['signin']))
         }
         else
         {
-            $_SESSION['usr_id'] = $userMgmt->get_usr_id($user_info);
+            $_SESSION['usr_id'] = $userMgmt->getUserId($user_info);
             header('Location: /index.php');
         }
     }
