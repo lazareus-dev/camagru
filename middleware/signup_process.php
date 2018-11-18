@@ -5,6 +5,7 @@ require_once($_ROOT."/model/UserManager.php");
 $login = "";
 $email = "";
 $passwd = "";
+$regex = '$S*(?=S{8,})(?=S*[a-z])(?=S*[A-Z])(?=S*[d])(?=S*[W])S*$';
 
 $user = new UserManager();
 
@@ -20,6 +21,12 @@ if (isset($_POST['signup']))
             echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
             require($_ROOT."/view/signup.php");
         }
+        // else if (!preg_match($regex, $_POST['passwd']))
+        // {
+        //     $message='Password must contain at least : 1 uppercase, 1 lowercase, 1 number, 1 special character';
+        //     echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+        //     require($_ROOT."/view/signup.php");
+        // }
         else
         {
             $passwd = hash('Whirlpool', $_POST['passwd']);
