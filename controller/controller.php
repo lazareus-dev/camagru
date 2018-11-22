@@ -3,25 +3,6 @@
 require_once($_ROOT."/model/PictureManager.php");
 require_once($_ROOT."/model/CommentManager.php");
 
-function settingsPage()
-{
-    global $_ROOT;
-
-    if (!isset($_SESSION['usr_id']) || $_SESSION['usr_id'] < 1)
-    {
-        $login_first = true;
-        signinForm($login_first);
-        return ;
-    }
-    if (isset($_POST['apply']))
-        ;
-    else
-    {
-        require($_ROOT."/middleware/settings_getter.php");
-        require($_ROOT."/view/settings.php");
-    }
-}
-
 function profilePage()
 {
     global $_ROOT;

@@ -58,6 +58,7 @@ class UserManager extends Manager
     public function getUserId($user_req)
     {
         $usr_datas = $user_req->fetch();
+
         return ($usr_datas['usr_id']);
     }
 
@@ -68,5 +69,54 @@ class UserManager extends Manager
         $usr_settings->execute(array($usr_id));
 
         return $usr_settings;
+    }
+
+    public function checkPassword($usr_id, $pass_to_check)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT usr_passwd FROM USER WHERE usr_id=?');
+        $req->execute(array($usr_id));
+
+        return (comparePassword($req));
+    }
+
+    private function comparePassword($dbRequest)
+    {
+        if ($dbRequest)
+        {
+            $usr_datas = $dbRequest->fetch();
+            $passwd = $usr_datas['passwd'];
+            if ($passwd === hash('Whirlpool', $pass_to_check))
+                return (true);
+        }
+
+        return (false);
+    }
+
+    public function updateLogin($usr_id, $new_login)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('UPDATE USER SET usr_login=? WHERE usr_id=?');
+        $affectedLines = $req->execute(array($new_login, $usr_id));
+
+        return $affectedLines;
+    }
+
+    public function updateEmail($usr_id, $new_mail)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('UPDATE USER SET usr_mail=? WHERE usr_id=?');
+        $affectedLines = $req->execute(array($new_mail, $usr_id));
+
+        return $affectedLines;
+    }
+    
+    public function updateNotif($usr_id, $new_notif)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('UPDATE USER SET usr_notif=? WHERE usr_id=?');
+        $affectedLines = $req->execute(array($new_notif, $usr_id));
+
+        return $affectedLines;
     }
 }

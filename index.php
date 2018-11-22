@@ -3,6 +3,7 @@ if (!isset($_SESSION))
     session_start();
 $_ROOT = getcwd();
 require_once($_ROOT."/controller/controller.php");
+require_once($_ROOT."/controller/settings.php");
 
 try {
 

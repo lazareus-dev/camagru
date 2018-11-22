@@ -1,22 +1,22 @@
 <?php ob_start(); ?>
 
 <div class="settings-form">
-    <h3><?= $login ?></h3>
-    <form action="index.php?action=signin" method="POST">
+    <h2><?= $_SESSION['login'] ?></h2>
+    <form action="index.php?action=settings" method="POST">
        
        <div class="input-block"> 
         <label for="login">Login</label>
-        <input type="text" id="login" name="login" value="<?= $login ?>">
+        <input type="text" id="login" name="login" value="<?= $_SESSION['login'] ?>">
        </div>
 
        <div class="input-block"> 
         <label for="notif">Notifications</label>
-        <input type="checkbox" name="notif" <?php if ($notif){echo 'checked';}?>>
+        <input type="checkbox" name="notif" <?php if ($_SESSION['notif']){echo 'checked';}?>>
        </div>
 
        <div class="input-block"> 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" value="<?= $email ?>">
+        <input type="email" id="email" name="email" value="<?= $_SESSION['email'] ?>">
        </div>
 
        <div class="input-block"> 

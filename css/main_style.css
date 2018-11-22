@@ -73,7 +73,7 @@ body {
   }
 }
 
-footer {
+#footer {
   position: fixed;
   left: 0;
 	bottom: 0;
@@ -149,6 +149,10 @@ input[type=submit]:hover {
   padding: 20px;
 }
 
+.settings-form h2 {
+  text-align: center;
+}
+
 .settings-form label {
   width: 50%;
   margin-right: 10px;
@@ -168,4 +172,38 @@ input[type=submit]:hover {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.main-montage {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.montage-cam {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 480px;
+}
+
+.montage-cam canvas {
+  width: 320px;
+  height: 240px;
+}
+
+.montage-gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  min-width: 200px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+}
+
+#player {
+  width: 480px;
+  height: 320px;
 }
