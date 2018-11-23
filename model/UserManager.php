@@ -77,15 +77,15 @@ class UserManager extends Manager
         $req = $db->prepare('SELECT usr_passwd FROM USER WHERE usr_id=?');
         $req->execute(array($usr_id));
 
-        return (comparePassword($req));
+        return ($this->comparePassword($req, $pass_to_check));
     }
 
-    private function comparePassword($dbRequest)
+    private function comparePassword($dbRequest, $pass_to_check)
     {
         if ($dbRequest)
         {
             $usr_datas = $dbRequest->fetch();
-            $passwd = $usr_datas['passwd'];
+            $passwd = $usr_datas['usr_passwd'];
             if ($passwd === hash('Whirlpool', $pass_to_check))
                 return (true);
         }
@@ -116,6 +116,16 @@ class UserManager extends Manager
         $db = $this->dbConnect();
         $req = $db->prepare('UPDATE USER SET usr_notif=? WHERE usr_id=?');
         $affectedLines = $req->execute(array($new_notif, $usr_id));
+
+        return $affectedLines;
+    }
+
+    public function updatePassword($usr_id, $new_passwd)
+    {
+        $db = $this->dbConnect();
+        $hashpass = hash('Whirlpool', $new_passwd);
+        $req = $db->prepare('UPDATE USER SET usr_passwd=? WHERE usr_id=?');
+        $affectedLines = $req->execute(array($hashpass, $usr_id));
 
         return $affectedLines;
     }
