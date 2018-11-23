@@ -46,7 +46,7 @@ class UserManager extends Manager
         return $req->rowCount();
     }
 
-    private function checkIfMailExists($usr_mail)
+    public function checkIfMailExists($usr_mail)
     {
         $db = $this->dbConnect();
         $req = $db->prepare('SELECT * FROM USER WHERE usr_mail=?');

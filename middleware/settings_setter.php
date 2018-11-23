@@ -33,8 +33,15 @@ function settingsLogin($usrMgmt)
 
 function settingsEmail($usrMgmt)
 {
-    if (isset($_POST['email']) && ($_POST['email'] !== $_SESSION['email']))
-        $usrMgmt->updateEmail($_SESSION['usr_id'], $_POST['email']);
+    if (isset($_POST['email']) && $_POST['email'] != "" && ($_POST['email'] !== $_SESSION['email']))
+    {
+        if (!$usrMgmt->checkIfMailExists($_POST['email']))
+            $usrMgmt->updateEmail($_SESSION['usr_id'], $_POST['email']);
+        else {
+            $_SESSION['error'] = 'unavailable_email';
+            header('Location: /index.php?action=settings');
+        }
+    }
 }
 
 function settingsNotif($usrMgmt)
