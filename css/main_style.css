@@ -89,7 +89,7 @@ input, select {
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 3px;
   box-sizing: border-box;
 }
 
@@ -100,7 +100,7 @@ input[type=submit] {
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
-  border-radius: 4px;
+  border-radius: 3px;
   cursor: pointer;
   text-align: center;
 }
@@ -177,14 +177,40 @@ input[type=submit]:hover {
 .main-montage {
   display: flex;
   flex-direction: row;
+}
 
+video {
+  border: 10px solid #f2f2f2;
+  border-radius: 3px;
 }
 
 .montage-cam {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 10px;
   width: 480px;
+}
+
+#player {
+  width: 427px;
+  height: 320px;
+}
+
+#stickers img {
+  max-width: 96px;
+}
+
+.montage-cam button {
+  width: 100%;
+  background-color: #455A64;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  text-align: center; 
 }
 
 .montage-cam canvas {
@@ -194,16 +220,14 @@ input[type=submit]:hover {
 
 .montage-gallery {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-content: center;
   flex-wrap: wrap;
   min-width: 200px;
+  margin-top: 9px;
   padding: 10px;
   text-align: center;
   border-radius: 3px;
   background-color: #f2f2f2;
 }
 
-#player {
-  width: 480px;
-  height: 320px;
-}

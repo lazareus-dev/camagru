@@ -3,12 +3,15 @@
 <div class="main-montage">
     <div class="montage-cam">
         <video id="player" autoplay="autoplay"></video>
-        <button id="capture">Capture</button>
+        <div id="stickers">
+        </div>
+        <button id="capture">capture</button>
         <canvas id="canvas"></canvas>
         <script src="/view/scripts/camera.js"></script>
+        <script src="/view/scripts/stickers_impl.js"></script>
     </div>
     <div class="montage-gallery">
-        lkjsdflkj
+        Your gallery
     </div>
 </div>
 
