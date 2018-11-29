@@ -1,6 +1,6 @@
 <?php
 
-require_once($_ROOT."/config/database.php");
+require_once("/var/www/html/config/database.php");
 
 class Manager
 {

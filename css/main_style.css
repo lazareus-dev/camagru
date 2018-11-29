@@ -179,11 +179,6 @@ input[type=submit]:hover {
   flex-direction: row;
 }
 
-video {
-  border: 10px solid #f2f2f2;
-  border-radius: 3px;
-}
-
 .montage-cam {
   display: flex;
   flex-direction: column;
@@ -193,12 +188,32 @@ video {
 }
 
 #player {
+  position: absolute;
+  z-index: -1;
   width: 427px;
   height: 320px;
+  border: 10px solid #f2f2f2;
+  border-radius: 3px;
 }
 
-#stickers img {
+.screen #sticker {
+  z-index: 1;
+  width: 427px;
+  height: 320px;
+  border: 10px solid #f2f2f2;
+  border-radius: 3px;
+}
+
+#stick_icon {
+  margin-top: 5px; 
+}
+
+#stick_icon input[type=image] {
   max-width: 96px;
+  height: 64px;
+  width: 76px;
+  margin-left: 3px;
+  margin-right: 3px;
 }
 
 .montage-cam button {
@@ -214,8 +229,8 @@ video {
 }
 
 .montage-cam canvas {
-  width: 320px;
-  height: 240px;
+  width: 427px;
+  height: 320px;
 }
 
 .montage-gallery {
@@ -230,4 +245,3 @@ video {
   border-radius: 3px;
   background-color: #f2f2f2;
 }
-
