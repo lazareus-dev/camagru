@@ -129,4 +129,13 @@ class UserManager extends Manager
 
         return $affectedLines;
     }
+
+    public function getLoginFromId($usr_id)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT usr_login FROM USER WHERE usr_id=?');
+        $req->execute(array($usr_id));
+
+        return $req->fetch()['usr_login'];
+    }
 }

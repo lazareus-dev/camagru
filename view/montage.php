@@ -19,15 +19,15 @@
         </div>
         <input type="hidden" value="2" id="sticker_id" name="sticker_id">
         <button type="submit" id="capture">capture</button>
-        <canvas id="canvas"></canvas>
-        <script src="/view/scripts/camera.js"></script>
-        <script src="/view/scripts/stickers_screen.js"></script>
-        <script src="/view/scripts/picture_process.js"></script>
+        <canvas id="canvas" hidden></canvas>
     </div>
     <div id="gallery" class="montage-gallery">
-        Your gallery
+        <div id="gallery-content"></div>
     </div>
 </div>
+<script src="/view/scripts/camera.js"></script>
+<script src="/view/scripts/stickers_screen.js"></script>
+<script src="/view/scripts/picture_process.js"></script>
 
 <?php $content = ob_get_clean(); ?>
 <?php require("template.php"); ?>

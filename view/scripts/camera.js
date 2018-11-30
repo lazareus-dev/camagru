@@ -17,6 +17,7 @@ captureButton.addEventListener('click', () => {
     // Draw the video frame to the canvas.
     context.drawImage(player, 0, 0, canvas.width, canvas.height);
     pictureProcess(document.getElementById('sticker_id').value);
+    updateMiniGallery();
 });
 
 // Attach the video stream to the video element and autoplay.

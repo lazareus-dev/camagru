@@ -1,21 +1,8 @@
 <?php
 
+require_once($_ROOT."/model/UserManager.php");
 require_once($_ROOT."/model/PictureManager.php");
 require_once($_ROOT."/model/CommentManager.php");
-
-function profilePage()
-{
-    global $_ROOT;
-
-    if (!isset($_SESSION['usr_id']) || $_SESSION['usr_id'] < 1)
-    {
-        $login_first = false;
-        signinForm($login_first);
-        return ;
-    }
-
-    require($_ROOT."/view/profile.php");
-}
 
 function signinForm($login_first)
 {
@@ -55,12 +42,14 @@ function montagePage()
     require($_ROOT."/view/montage.php");
 }
 
-function displayPictures()
+function displayAllPictures()
 {
     global $_ROOT;
 
-    $picManager = new PictureManager();
-    $pictures = $picManager->getPictures();
+    $usrMgmt = new UserManager();
+    $picMgmt = new PictureManager();
+
+    $pictures = $picMgmt->getAllPictures();
 
     require($_ROOT."/view/main_gallery.php");
 }

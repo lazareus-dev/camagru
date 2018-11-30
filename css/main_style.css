@@ -204,14 +204,10 @@ input[type=submit]:hover {
   border-radius: 3px;
 }
 
-#stick_icon {
-  margin-top: 5px; 
-}
-
 #stick_icon input[type=image] {
   max-width: 96px;
   height: 64px;
-  width: 76px;
+  width: 80px;
   margin-left: 3px;
   margin-right: 3px;
 }
@@ -239,9 +235,82 @@ input[type=submit]:hover {
   align-content: center;
   flex-wrap: wrap;
   min-width: 200px;
+  height: 600px;
   margin-top: 9px;
   padding: 10px;
   text-align: center;
   border-radius: 3px;
   background-color: #f2f2f2;
+  overflow-y: scroll;
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+
+.mini-gallery-img {
+  max-width: 160px;
+}
+
+.gallery-pic {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #dadada;
+}
+
+.gallery-pic img {
+  width: 100%;
+}
+
+.pic-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+}
+
+.pic-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  margin-right: 10px;
+}
+
+.pic-footer {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  align-items: flex-start;
+}
+
+.pic-footer .pic-icons {
+  display: flex;
+  flex-direction: row;
+}
+
+.pic-footer img {
+  width: 40px;
+  height: 40px;
+  margin: -5px;
+  margin-right: 5px;
+}
+
+.pic-footer .pic-likes {
+}
+
+.pic-footer textarea {
+  margin-top: 5px;
+  width: 99%;
+  max-width: 100%;
+  resize: vertical;
+  max-height: 200px;
+  min-height: 30px;
+  margin-bottom: 3px;
+  border: 1px solid #dadada;
+  border-radius: 3px;
+}
+
+.pic-footer button[type=submit] {
+  padding: 7px 13px;
+  border-radius: 3px;
 }
