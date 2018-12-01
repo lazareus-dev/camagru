@@ -7,7 +7,7 @@
         {
             $owner_id = $usrMgmt->getLoginFromId($pic['usr_id']);
             $nb_likes = $picMgmt->getNumberOfLikes($pic['pic_id'])[0];
-            $nb_comments = $picMgmt->getNumberOfComments($pic['pic_id']);
+            $nb_cmts = $picMgmt->getNumberOfComments($pic['pic_id'])[0];
 
             echo '<div class="gallery-pic">';
             require("gallery_pic_header.php");

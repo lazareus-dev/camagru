@@ -1,6 +1,6 @@
 <?php
 
-require_once($_ROOT."/model/Manager.php");
+require_once("/var/www/html/model/Manager.php");
 
 class CommentManager extends Manager
 {
@@ -9,7 +9,7 @@ class CommentManager extends Manager
         $comment = trim($comment);
         if ($comment === '')
             return -1;
-        $db = dbConnect();
+        $db = $this->dbConnect();
         $rq = $db->prepare('INSERT INTO COMMENT(usr_id, pic_id, cmt_content)
         VALUES(?, ?, ?)');
         $affectedLines = $rq->execute(array($usr_id, $pic_id, $comment));
@@ -20,7 +20,7 @@ class CommentManager extends Manager
     public function getComments($pic_id)
     {
         $db = $this->dbConnect();
-        $rq = $db->prepare('SELECT * FROM COMMENT WHERE pic_id=? ORDER BY cmt_date DESC');
+        $rq = $db->prepare('SELECT cmt_content FROM COMMENT WHERE pic_id=? ORDER BY cmt_date DESC');
         $rq->execute(array($pic_id));
 
         return ($rq);

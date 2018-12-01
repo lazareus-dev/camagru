@@ -1,5 +1,5 @@
 body {
-  background-color: #fafafa;
+  background-color: #f6f6f6;
 	padding: 0%;
   margin: 0%;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -14,9 +14,10 @@ body {
 
 .header {
   overflow: hidden;
-  background-color: #f1f1f1;
+  background-color: #fafafa;
   padding: 10px 10px;
   margin-bottom: 10px;
+  border-bottom: 1px solid #dadada;
 }
 
 .header-content {
@@ -242,8 +243,8 @@ input[type=submit]:hover {
   border-radius: 3px;
   background-color: #f2f2f2;
   overflow-y: scroll;
-    overflow-x: hidden;
-    white-space: nowrap;
+  overflow-x: hidden;
+  white-space: nowrap;
 }
 
 .mini-gallery-img {
@@ -253,8 +254,8 @@ input[type=submit]:hover {
 .gallery-pic {
   display: flex;
   flex-direction: column;
-  margin-top: 5px;
-  margin-bottom: 15px;
+  margin-top: 20px;
+  margin-bottom: 30px;
   border: 1px solid #dadada;
 }
 

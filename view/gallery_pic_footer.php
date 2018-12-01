@@ -8,8 +8,7 @@
         <?php if ($nb_likes > 1) echo 'likes'; else echo 'like'; ?>
     </div>
     <div class="pic-comments">
-        <?= $nb_likes ?>
+        <?= $nb_cmts ?>
         <?php if ($nb_likes > 1) echo 'comments'; else echo 'comment'; ?>
     </div>
 </div>
-<script src="/view/scripts/pic_add_comment.js"></script>

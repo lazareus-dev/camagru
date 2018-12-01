@@ -54,11 +54,3 @@ function displayAllPictures()
     require($_ROOT."/view/main_gallery.php");
 }
 
-function addComment($usr_id, $pic_id, $comment)
-{
-    $cmtManager = new CommentManager();
-    $affectedLines = $cmtManager->postComment($usr_id, $pic_id, $comment);
-
-    if ($affectedLines === false)
-        throw new Exception('Error while adding comment');
-}
