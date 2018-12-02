@@ -194,13 +194,42 @@ input[type=submit]:hover {
   width: 480px;
 }
 
-#player {
+.screen #player {
   position: absolute;
   z-index: -1;
   width: 427px;
   height: 320px;
   border: 10px solid #f2f2f2;
   border-radius: 3px;
+}
+
+.screen #uploaded {
+  position: absolute;
+  z-index: 5;
+  width: 427px;
+  height: 320px;
+  border: 10px solid #f2f2f2;
+  border-radius: 3px;
+}
+
+.upload-form {
+  width: 100%;
+}
+
+.upload-form form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.upload-form #upload-btn {
+  background-color: white;
+  color: black;
+  border: 1px solid #dadada;
+  border-radius: 3px;
+  padding: 2px 1px;
+  width: 100px;
 }
 
 .screen #sticker {
@@ -231,6 +260,10 @@ input[type=submit]:hover {
   text-align: center; 
 }
 
+.montage-cam button:disabled {
+  background-color: #ccc;
+
+}
 .montage-cam canvas {
   width: 427px;
   height: 320px;

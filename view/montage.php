@@ -4,7 +4,15 @@
     <div class="montage-cam">
         <div class="screen" id="screen">
             <video id="player" autoplay="autoplay"></video>
+            <canvas id="uploaded"></canvas>
             <img src="" id="sticker">
+        </div>
+        <div class="upload-form" id="upload-form">
+            <form method="post" action="reception.php" enctype="multipart/form-data">
+                <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+                <input type="file" name="file-select" id="file-select" />
+                <button type="submit" id="upload-btn">Upload</button>
+            </form>
         </div>
         <div id="stick_icon">
         <?php
