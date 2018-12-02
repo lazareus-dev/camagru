@@ -54,3 +54,9 @@ function displayAllPictures()
     require($_ROOT."/view/main_gallery.php");
 }
 
+function pageNotFound()
+{
+    global $_ROOT;
+
+    require($_ROOT."/view/page_not_found.php");
+}

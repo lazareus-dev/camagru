@@ -9,6 +9,6 @@
     </div>
     <div class="pic-comments">
         <?= $nb_cmts ?>
-        <?php if ($nb_likes > 1) echo 'comments'; else echo 'comment'; ?>
+        <?php if ($nb_cmts > 1) echo 'comments'; else echo 'comment'; ?>
     </div>
 </div>

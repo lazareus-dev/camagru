@@ -14,4 +14,10 @@ $cmtMgmt = new CommentManager();
 
 $req = $cmtMgmt->getComments($_POST['pic_id']);
 while ($comment = $req->fetch())
-    echo '<p>' . $comment['cmt_content'] . '</p>';
+{
+    echo '<div class="comment-container" id="'. $comment['cmt_id'] .'"
+          ondblclick="deleteComment('. $comment['cmt_id'] .')">';
+    echo '<div class="comment">' . $comment['cmt_content'] . '</div>';
+    echo '<div class="cmt-usr">by ' . $comment['usr_login'] . '</div>';
+    echo '</div>';
+}

@@ -28,6 +28,8 @@ if (isset($_GET['action']))
         session_destroy();
         displayAllPictures();
     }
+    else if ($_GET['action'] == 'notfound')
+        pageNotFound();
     else if ($_GET['action'] == 'addComment')
     {
         if (isset($_SESSION['usr_id']) && $_SESSION['usr_id'] > 0)

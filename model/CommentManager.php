@@ -14,15 +14,37 @@ class CommentManager extends Manager
         VALUES(?, ?, ?)');
         $affectedLines = $rq->execute(array($usr_id, $pic_id, $comment));
 
-        return ($affectedLines);
+        return $affectedLines;
     }
 
     public function getComments($pic_id)
     {
         $db = $this->dbConnect();
-        $rq = $db->prepare('SELECT cmt_content FROM COMMENT WHERE pic_id=? ORDER BY cmt_date DESC');
+        $rq = $db->prepare('SELECT COMMENT.cmt_id, COMMENT.cmt_content, USER.usr_login 
+                            FROM COMMENT, USER 
+                            WHERE pic_id=?
+                            AND COMMENT.usr_id = USER.usr_id
+                            ORDER BY cmt_date DESC');
         $rq->execute(array($pic_id));
 
-        return ($rq);
+        return $rq;
+    }
+
+    public function getCommentById($cmt_id)
+    {
+        $db = $this->dbConnect();
+        $rq = $db->prepare('SELECT * FROM COMMENT WHERE cmt_id=?');
+        $rq->execute(array($cmt_id));
+
+        return $rq;
+    }
+
+    public function deleteComment($cmt_id)
+    {
+        $db = $this->dbConnect();
+        $rq = $db->prepare('DELETE FROM COMMENT WHERE cmt_id=?');
+        $affectedLines = $rq->execute(array($cmt_id));
+
+        return $affectedLines;
     }
 }

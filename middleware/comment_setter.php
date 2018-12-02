@@ -15,6 +15,7 @@ addComment($_SESSION['usr_id'], $_POST['pic_id'], $_POST['comment']);
 
 function addComment($usr_id, $pic_id, $comment)
 {
+    $comment = htmlspecialchars($comment);
     $cmtManager = new CommentManager();
     $affectedLines = $cmtManager->postComment($usr_id, $pic_id, $comment);
 
