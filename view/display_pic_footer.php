@@ -11,5 +11,6 @@
     <textarea rows="2" id="cmt_area" name="comment"></textarea>
     <button type="submit" id="submitCmt" name="<?= $pic['pic_id'] ?>">publish</button>
 </div>
-<script src="/view/scripts/comment_process.js"></script>
+<script src="/view/scripts/comment_setter.js"></script>
+<script src="/view/scripts/comment_getter.js"></script>
 <script src="/view/scripts/comment_delete.js"></script>

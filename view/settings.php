@@ -1,16 +1,6 @@
 <?php ob_start(); ?>
 
-<script>
-function validateForm() {
-    var newpasswd = document.forms['settings']['newpasswd'].value;
-    var oldpasswd = document.forms['settings']['oldpasswd'].value;
-    if (newpasswd != "" && oldpasswd == "") {
-        alert("Please fill in your old password to modify it");
-        document.getElementById('oldpasswd').focus();
-        return false;
-    }
-}
-</script>
+
 
 <div class="settings-form">
     <h2><?= $_SESSION['login'] ?></h2>
@@ -49,6 +39,18 @@ function validateForm() {
 
     </form>
 </div>
+
+<script>
+function validateForm() {
+    var newpasswd = document.forms['settings']['newpasswd'].value;
+    var oldpasswd = document.forms['settings']['oldpasswd'].value;
+    if (newpasswd != "" && oldpasswd == "") {
+        alert("Please fill in your old password to modify it");
+        document.getElementById('oldpasswd').focus();
+        return false;
+    }
+}
+</script>
 
 <?php $content = ob_get_clean(); ?>
 <?php require("template.php"); ?>

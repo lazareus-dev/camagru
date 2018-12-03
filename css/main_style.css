@@ -152,12 +152,14 @@ input[type=submit]:hover {
   border: 1px solid #455A64;
   border-radius: 3px;
   background-color: #f2f2f2;
-  max-width: 500px;
+  width: 400px;
   padding: 20px;
 }
 
 .settings-form h2 {
+  margin-top: 5px;
   text-align: center;
+  width: 100%;
 }
 
 .settings-form label {
@@ -167,12 +169,10 @@ input[type=submit]:hover {
 }
 
 .settings-form input {
-  width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+  border-radius: 3px;
 }
 
 .input-block {
@@ -205,7 +205,7 @@ input[type=submit]:hover {
 
 .screen #uploaded {
   position: absolute;
-  z-index: 5;
+  z-index: -1;
   width: 427px;
   height: 320px;
   border: 10px solid #f2f2f2;
@@ -233,7 +233,7 @@ input[type=submit]:hover {
 }
 
 .screen #sticker {
-  z-index: 1;
+  z-index: 5;
   width: 427px;
   height: 320px;
   border: 10px solid #f2f2f2;
@@ -300,6 +300,15 @@ input[type=submit]:hover {
 
 .gallery-pic img {
   width: 100%;
+}
+
+.profile-pic-header {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-right: 5px;
 }
 
 .pic-header {

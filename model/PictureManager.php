@@ -21,6 +21,18 @@ class PictureManager extends Manager
         return $affectedLines;
     }
 
+    public function getPicOwnerNotifDatas($pic_id)
+    {
+        $db = $this->dbConnect();
+        $rq = $db->prepare('SELECT PICTURE.usr_id, USER.usr_mail, USER.usr_notif
+                            FROM PICTURE, USER 
+                            WHERE pic_id=?
+                            AND PICTURE.usr_id = USER.usr_id');
+        $rq->execute(array($pic_id));
+
+        return $rq;
+    }
+
     public function getAllUserPics($usr_id)
     {
         $db = $this->dbConnect();
@@ -55,5 +67,47 @@ class PictureManager extends Manager
         $req->execute(array($pic_id));
 
         return $req->fetch();
+    }
+
+    public function requestDeletePicture($pic_id, $usr_id)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT usr_id, pic_path FROM PICTURE WHERE pic_id=?');
+        $req->execute(array($pic_id));
+
+        $picture = $req->fetch();
+        if (empty($picture))
+            return 0;
+        if (!$this->checkPictureOwner($pic_id, $usr_id, $picture))
+            $affectedLines = 0;
+        else
+            $affectedLines = $this->deletePicture($pic_id, $picture);
+
+        return $affectedLines;
+    }
+
+    private function checkPictureOwner($pic_id, $usr_id, $picture)
+    {
+        if ($picture['usr_id'] === $usr_id)
+            return true;
+        return false;
+    }
+
+    private function deletePicture($pic_id, $picture)
+    {
+        
+        $db = $this->dbConnect();
+        $delcom = $db->prepare('DELETE FROM COMMENT WHERE pic_id=?');
+        if (!$delcom->execute(array($pic_id)))
+            return 0;
+        $req = $db->prepare('DELETE FROM PICTURE WHERE pic_id=?');
+        if ($affectedLines = $req->execute(array($pic_id)))
+        {
+            $path = '/var/www/html/' . $picture['pic_path'];
+            if (file_exists($path))
+                unlink($path);
+        }
+
+        return $affectedLines;
     }
 }

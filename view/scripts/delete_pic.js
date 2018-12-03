@@ -1,15 +1,20 @@
-function deleteComment(commentId) {
+function promptDeletePic(picId) {
+    if (confirm('Are you sure ?'))
+        deletePic(picId);
+}
+
+function deletePic(picId) {
     if (window.XMLHttpRequest)
         xmlhttp = new XMLHttpRequest();
     else
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            updateCommentDisplay();
+            location.reload();
         }
     };
-    var data = "cmt_id=" + commentId;
-    xmlhttp.open("POST", "/middleware/comment_delete.php", true);
+    var data = "pic_id=" + picId;
+    xmlhttp.open("POST", "/middleware/pic_delete.php", true);
     xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xmlhttp.send(data);
 }

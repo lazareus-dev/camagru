@@ -2,6 +2,7 @@
 if (!isset($_SESSION))
     session_start();
 $_ROOT = getcwd();
+require_once($_ROOT."/controller/users.php");
 require_once($_ROOT."/controller/controller.php");
 require_once($_ROOT."/controller/settings.php");
 require_once($_ROOT."/controller/profile.php");
@@ -26,16 +27,12 @@ if (isset($_GET['action']))
     else if ($_GET['action'] == 'logout')
     {
         session_destroy();
-        displayAllPictures();
+        header('Location: /index.php');
     }
+    else if ($_GET['action'] == 'confirm' && isset($_GET['activkey']))
+        confirmAccount($_GET['activkey']);
     else if ($_GET['action'] == 'notfound')
         pageNotFound();
-    else if ($_GET['action'] == 'addComment')
-    {
-        if (isset($_SESSION['usr_id']) && $_SESSION['usr_id'] > 0)
-            if (!empty($_POST['comment']))
-                addComment($_SESSION['usr_id'], $_POST['pic_id'], $_POST['comment']);
-    }
     else
         displayAllPictures();
 }

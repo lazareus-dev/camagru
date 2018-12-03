@@ -30,7 +30,10 @@ if (isset($_POST['signup']))
         else
         {
             $passwd = hash('Whirlpool', $_POST['passwd']);
-            $user->createUser($login, $email, $passwd);
+            $activkey = hash('Whirlpool', uniqid());
+            $user->createUser($login, $email, $passwd, $activkey);
+            $new_user = true;
+            require($_ROOT.'/controller/mail.php');
             header('Location: /index.php');
         }
     }

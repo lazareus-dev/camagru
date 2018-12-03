@@ -1,6 +1,6 @@
 <?php
 
-require_once($_ROOT."/model/Manager.php");
+require_once("/var/www/html/model/Manager.php");
 
 class UserManager extends Manager
 {
@@ -21,12 +21,12 @@ class UserManager extends Manager
         return $req;
     }
 
-    public function createUser($usr_login, $usr_mail, $hashpass)
+    public function createUser($usr_login, $usr_mail, $hashpass, $activkey)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('INSERT INTO USER(usr_login, usr_mail, usr_passwd)
-        VALUES(?, ?, ?)');
-        $affectedLines = $req->execute(array($usr_login, $usr_mail, $hashpass));
+        $req = $db->prepare('INSERT INTO USER(usr_login, usr_mail, usr_passwd, usr_activkey)
+        VALUES(?, ?, ?, ?)');
+        $affectedLines = $req->execute(array($usr_login, $usr_mail, $hashpass, $activkey));
 
         return $affectedLines;
     }
@@ -57,9 +57,7 @@ class UserManager extends Manager
 
     public function getUserId($user_req)
     {
-        $usr_datas = $user_req->fetch();
-
-        return ($usr_datas['usr_id']);
+        return ($user_req['usr_id']);
     }
 
     public function getUserSettings($usr_id)
@@ -137,5 +135,24 @@ class UserManager extends Manager
         $req->execute(array($usr_id));
 
         return $req->fetch()['usr_login'];
+    }
+
+    public function activateUser($received_key)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT usr_id, usr_activated FROM USER WHERE usr_activkey=?');
+        $req->execute(array($received_key));
+
+        $result = $req->fetch();
+        if (empty($result))
+            return -1;
+        else if ($result['usr_activated'] == 1)
+            return 0;
+        else
+        {
+            $activReq = $db->prepare('UPDATE USER SET usr_activated=1, usr_activkey=0 WHERE usr_id=?');
+            $activReq->execute(array($result['usr_id']));
+        }
+        return $result['usr_id'];
     }
 }

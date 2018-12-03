@@ -22,8 +22,14 @@ if (isset($_POST['signin']))
         }
         else
         {
-            $_SESSION['usr_id'] = $userMgmt->getUserId($user_info);
-            header('Location: /index.php');
+            $user = $user_info->fetch();
+            if ($user['usr_activated'] == 1)
+            {
+                $_SESSION['usr_id'] = $userMgmt->getUserId($user);
+                header('Location: /index.php?action=profile');
+            }
+            else
+                header('Location: /index.php?action=signup');
         }
     }
 }

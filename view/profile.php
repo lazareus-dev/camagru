@@ -1,13 +1,17 @@
 <?php ob_start(); ?>
 
 <div id="main-profile">
+<script src="/view/scripts/open_picture.js"></script>
     <?php
         while ($pic = $picReq->fetch())
         {
+            $nb_likes = $picMgmt->getNumberOfLikes($pic['pic_id'])[0];
+            $nb_cmts = $picMgmt->getNumberOfComments($pic['pic_id'])[0];
+
             echo '<div class="gallery-pic">';
             require("profile_pic_header.php");
-            echo '<img src="' . $pic[0] . '">';
-            // require("pic_footer.php");
+            echo '<img src="' . $pic['pic_path'] . '" onclick="openPicture('. $pic['pic_id'] .')">';
+            require("profile_pic_footer.php");
             echo '</div>';
         }
     ?>

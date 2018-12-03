@@ -1,5 +1,7 @@
 <?php
 
+require_once($_ROOT."/model/PictureManager.php");
+
 function profilePage()
 {
     global $_ROOT;
@@ -10,6 +12,12 @@ function profilePage()
         signinForm($login_first);
         return ;
     }
-    require($_ROOT."/middleware/profile_getter.php");
+
+    $picMgmt = new PictureManager();
+
+    if (isset($_GET['profile_id']))
+        $picReq = $picMgmt->getAllUserPics($_GET['profile_id']);
+    else
+        $picReq = $picMgmt->getAllUserPics($_SESSION['usr_id']);
     require($_ROOT."/view/profile.php");
 }

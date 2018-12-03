@@ -12,10 +12,10 @@ $usrMgmt = new UserManager();
 $req = $picMgmt->getPictureInfos($_GET['pic_id']);
 
 if ($req->rowCount() == 0)
-    {
-        header("Location: /index.php?action=notfound");
-        die();
-    }
+{
+    header("Location: /index.php?action=notfound");
+    die();
+}
 
 $pic = $req->fetch();
 $owner_id = $usrMgmt->getLoginFromId($pic['usr_id']);

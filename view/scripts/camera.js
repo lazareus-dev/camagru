@@ -23,9 +23,11 @@ const constraints = {
     audio: false
 };
 
+var uploadedImage = false;
+
 captureButton.addEventListener('click', () => {
-    // Draw the video frame to the canvas.
-    cam_context.drawImage(player, 0, 0, cam_canvas.width, cam_canvas.height);
+    if (!uploadedImage)
+        cam_context.drawImage(player, 0, 0, cam_canvas.width, cam_canvas.height);
     pictureProcess(document.getElementById('sticker_id').value);
 });
 captureButton.disabled = true;
@@ -57,14 +59,21 @@ function drawUploadedImage(formData) {
     xmlhttp.open("POST", "/middleware/draw_upload.php", true);
     xmlhttp.onload = function() {
         if (xmlhttp.status === 200) {
-            alert(this.responseText);
-            var toDraw = new Image();
-            toDraw.src = this.responseText;
-            cam_context.drawImage(toDraw, 0, 0, cam_canvas.width, cam_canvas.height);
-            // up_context.drawImage(toDraw, 0, 0, up_canvas.width, up_canvas.height);
-            uploadBtn.innerHTML = 'Upload';
-            if (this.responseText != 'ERROR')
+            if (this.responseText != 'ERROR') {
+                up_context.clearRect(0, 0, up_canvas.width, up_canvas.height);
+                cam_context.clearRect(0, 0, cam_canvas.width, cam_canvas.height);
+                var toDraw = new Image();
+                toDraw.onload = function() {
+                    up_context.drawImage(toDraw, 0, 0, up_canvas.width, up_canvas.height);
+                    cam_context.drawImage(toDraw, 0, 0, cam_canvas.width, cam_canvas.height);
+                }
+                toDraw.src = this.responseText;
+                uploadBtn.innerHTML = 'Upload';
                 captureButton.disabled = false;
+                if (player.srcObject)
+                    player.srcObject.getVideoTracks().forEach(track => track.stop());
+                uploadedImage = true;
+            }
         }
     };
     xmlhttp.send(formData);
