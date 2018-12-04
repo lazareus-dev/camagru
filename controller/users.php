@@ -40,3 +40,10 @@ function confirmAccount($activkey)
         $_SESSION['usr_id'] = $ret;
     }
 }
+
+function resetPassword()
+{
+    global $_ROOT;
+
+    require($_ROOT."/view/reset_passwd.php");
+}

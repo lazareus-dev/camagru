@@ -53,4 +53,4 @@ function validateForm() {
 </script>
 
 <?php $content = ob_get_clean(); ?>
-<?php require("template.php"); ?>
+<?php require("template/template.php"); ?>

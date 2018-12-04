@@ -9,4 +9,4 @@
 </div>
 
 <?php $content = ob_get_clean(); ?>
-<?php require($_ROOT."/view/template.php"); ?>
+<?php require($_ROOT."/view//template/template.php"); ?>

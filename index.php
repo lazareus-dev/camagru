@@ -31,6 +31,8 @@ if (isset($_GET['action']))
     }
     else if ($_GET['action'] == 'confirm' && isset($_GET['activkey']))
         confirmAccount($_GET['activkey']);
+    else if ($_GET['action'] == 'resetpwd')
+        resetPassword();
     else if ($_GET['action'] == 'notfound')
         pageNotFound();
     else

@@ -16,6 +16,7 @@
 
         <input type="submit" name="signin" value="connect">
     </form>
+    <a class="nodecolink" href='/index.php?action=resetpwd'> Password forgotten ?</a>
 </div>
 
 <div class="connect-form">
@@ -23,4 +24,4 @@
 </div>
 
 <?php $content = ob_get_clean(); ?>
-<?php require("template.php"); ?>
+<?php require("template/template.php"); ?>
