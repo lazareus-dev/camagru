@@ -3,6 +3,8 @@
 <div id="main-profile">
 <script src="/view/scripts/open_picture.js"></script>
     <?php
+        if ($picReq->rowCount() == 0)
+            echo '<a href="/index.php?action=montage">Try taking pictures up here !</a>';
         while ($pic = $picReq->fetch())
         {
             $nb_likes = $picMgmt->getNumberOfLikes($pic['pic_id'])[0];

@@ -155,4 +155,27 @@ class UserManager extends Manager
         }
         return $result['usr_id'];
     }
+
+    public function checkPwdStrength($pwd)
+    {
+        $error = "";
+
+        if (strlen($pwd) < 8) {
+            $error = "Password too short!";
+        }
+        else if (!preg_match("#[0-9]+#", $pwd)) {
+            $error = "Password must include at least one number!";
+        }
+        else if (!preg_match("#[a-zA-Z]+#", $pwd)) {
+            $error = "Password must include at least one letter!";
+        }
+        else if (!preg_match("#[A-Z]+#", $pwd) ) {
+            $error = "Password must include at least one CAPS!";
+        }
+        else if (!preg_match("#[!@\#\$%\^&_]#", $pwd) ) {
+            $error = "Password must include at least one Symbole!";
+        }
+
+        return ($error);
+    }
 }

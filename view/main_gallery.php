@@ -2,7 +2,10 @@
 
 <div id="main-gallery">
 <?php if (isset($_SESSION['usr_id']) && $_SESSION['usr_id'] > 0) { ?>
-<h1>Hello <?= $usrMgmt->getLoginFromId($_SESSION['usr_id']); ?></h1> <?php } ?>
+<h1>Hello <?= $usrMgmt->getLoginFromId($_SESSION['usr_id']); ?></h1>
+<?php } else { ?>
+<h1>Hello <?= 'visitor' ?></h1>
+<?php } ?>
 <script src="/view/scripts/open_picture.js"></script>
     <?php
         while ($pic = $pictures->fetch())

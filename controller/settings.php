@@ -10,8 +10,6 @@ function settingsPage()
         signinForm($login_first);
         die();
     }
-    if (isset($_POST['apply']) && $_POST['apply'] == 'apply')
-        require($_ROOT."/middleware/settings_setter.php");
     else
     {
         require($_ROOT."/middleware/settings_getter.php");

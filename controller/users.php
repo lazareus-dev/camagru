@@ -45,5 +45,8 @@ function resetPassword()
 {
     global $_ROOT;
 
-    require($_ROOT."/view/reset_passwd.php");
+    if (isset($_GET['resetkey']))
+        require($_ROOT."/view/reset_passwd.php");
+    else
+        require($_ROOT."/view/reset_passwd_form.php");
 }

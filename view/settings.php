@@ -1,11 +1,8 @@
 <?php ob_start(); ?>
 
-
-
 <div class="settings-form">
     <h2><?= $_SESSION['login'] ?></h2>
-    <form name="settings" action="index.php?action=settings"
-    onsubmit="return validateForm()" method="POST">
+    <form name="settings" id="settings-form" action="" method="POST">
        
        <div class="input-block"> 
         <label for="login">Login</label>
@@ -40,17 +37,7 @@
     </form>
 </div>
 
-<script>
-function validateForm() {
-    var newpasswd = document.forms['settings']['newpasswd'].value;
-    var oldpasswd = document.forms['settings']['oldpasswd'].value;
-    if (newpasswd != "" && oldpasswd == "") {
-        alert("Please fill in your old password to modify it");
-        document.getElementById('oldpasswd').focus();
-        return false;
-    }
-}
-</script>
+<script src="/view/scripts/settings_validation.js"></script>
 
 <?php $content = ob_get_clean(); ?>
 <?php require("template/template.php"); ?>

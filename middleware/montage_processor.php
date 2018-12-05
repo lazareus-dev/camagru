@@ -7,7 +7,7 @@ require_once("/var/www/html/model/PictureManager.php");
 if (!isset($_POST['img_data']) || !isset($_POST['sticker_id'])
     || !isset($_SESSION['usr_id']) || $_SESSION['usr_id'] < 1)
 {
-    throw new Exception("A problem occured");
+    header("Location: /index.php");
     die();
 }
 
