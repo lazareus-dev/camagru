@@ -1,7 +1,8 @@
 <?php ob_start(); ?>
 
 <div class="settings-form">
-    <h2><?= $_SESSION['login'] ?></h2>
+    <h2 id="settings-username" ></h2>
+    <input type="hidden" id="login_hint" value="<?= $_SESSION['login'] ?>">
     <form name="settings" id="settings-form" action="" method="POST">
        
        <div class="input-block"> 
@@ -11,7 +12,7 @@
 
        <div class="input-block"> 
         <label for="notif">Notifications</label>
-        <input type="checkbox" name="notif" <?php if ($_SESSION['notif']){echo 'checked';}?>>
+        <input type="checkbox" id="notif" name="notif" <?php if ($_SESSION['notif']){echo 'checked';}?>>
        </div>
 
        <div class="input-block"> 

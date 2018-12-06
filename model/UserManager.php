@@ -178,4 +178,31 @@ class UserManager extends Manager
 
         return ($error);
     }
+
+    public function insertResetKey($usr_mail, $resetkey)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('UPDATE USER SET usr_resetkey=? WHERE usr_mail=?');
+        $affectedLines = $req->execute(array($resetkey, $usr_mail));
+
+        return $affectedLines;
+    }
+
+    public function getUsrIdFromResetKey($resetkey)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT usr_id FROM USER WHERE usr_resetkey=?');
+        $req->execute(array($resetkey));
+
+        return $req;
+    }
+    
+    public function deleteResetKey($usr_id)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('UPDATE USER SET usr_resetkey=0 WHERE usr_id=?');
+        $affectedLines = $req->execute(array($usr_id));
+
+        return $affectedLines;
+    }
 }

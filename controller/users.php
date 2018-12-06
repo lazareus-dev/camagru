@@ -46,7 +46,14 @@ function resetPassword()
     global $_ROOT;
 
     if (isset($_GET['resetkey']))
-        require($_ROOT."/view/reset_passwd.php");
+    {
+        $usrMgmt = new UserManager();
+        $req = $usrMgmt->getUsrIdFromResetKey($_GET['resetkey']);
+        if ($req->rowCount() != 0)
+            require($_ROOT."/view/reset_passwd.php");
+        else
+            header('Location: /index.php');
+    }
     else
-        require($_ROOT."/view/reset_passwd_form.php");
+        require($_ROOT."/view/reset_passwd_mail.php");
 }

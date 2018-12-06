@@ -12,15 +12,17 @@ if (!isset($_SESSION['usr_id']))
 $usrMgmt = new UserManager();
 
 $errors = "";
-
-settingsLogin($usrMgmt);
-settingsEmail($usrMgmt);
-// settingsNotif($usrMgmt);
-settingsPasswd($usrMgmt);
+$ret = 0;
+$ret += settingsLogin($usrMgmt);
+$ret += settingsEmail($usrMgmt);
+$ret += settingsNotif($usrMgmt);
+$ret += settingsPasswd($usrMgmt);
 if ($errors != "")
     echo $errors;
-else
+else if ($ret != 0)
     echo "Changes applied";
+else
+    echo "No changes to apply";
 
 function settingsLogin($usrMgmt)
 {
@@ -36,6 +38,7 @@ function settingsLogin($usrMgmt)
             $errors .= 'Unvailable login
 ';
         }
+        return (1);
     }
 }
 
@@ -52,15 +55,21 @@ function settingsEmail($usrMgmt)
             $errors .= 'Unvailable email
 ';
         }
+        return (1);
     }
 }
 
 function settingsNotif($usrMgmt)
 {
     if (isset($_POST['notif']))
-        $new_notif = true;
-    if ($new_notif != $_SESSION['notif'])
-        $usrMgmt->updateNotif($_SESSION['usr_id'], $new_notif);
+    {
+        if ($_POST['notif'] == 'true')
+            $notif = 1;
+        else
+            $notif = 0;
+        $usrMgmt->updateNotif($_SESSION['usr_id'], $notif);
+        return (1);
+    }
 }
 
 function settingsPasswd($usrMgmt)
@@ -80,6 +89,9 @@ function settingsPasswd($usrMgmt)
             $errors .= 'Old Password must be filled';
         }
         else if ($usrMgmt->checkPassword($_SESSION['usr_id'], $_POST['oldpasswd']))
+        {
             $usrMgmt->updatePassword($_SESSION['usr_id'], $_POST['newpasswd']);
+            return (1);
+        }
     }
 }

@@ -27,7 +27,8 @@ function resetPasswd(pwd, resetKey) {
             alert(this.responseText);
         }
     };
-    var data = "pwd=" + pwd + "&resetkey=" + resetKey;
+    var data = "pwd=" + pwd + "&resetkey=" + resetKey.value;
+    console.log(data);
     xmlhttp.open("POST", "/middleware/ajax/pwd_resetter.php", true);
     xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xmlhttp.send(data);
