@@ -36,10 +36,18 @@ if (isset($_GET['action']))
     else if ($_GET['action'] == 'notfound')
         pageNotFound();
     else
-        displayAllPictures();
+    {
+        displayAllPictures(1);
+    }   
 }
 else
-    displayAllPictures();
+{
+    if (isset($_GET['page']))
+        $page = intval($_GET['page']);
+    else
+        $page = 1;
+    displayAllPictures($page);
+}
 
 } catch (Exception $e) {
     echo 'Error : ' . $e->getMessage();

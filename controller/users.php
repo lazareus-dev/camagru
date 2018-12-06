@@ -35,17 +35,14 @@ function confirmAccount($activkey)
     else if ($ret == 0)
         header('Location: /index.php?action=activconfirm?status=already');
     else
-    {
-        header('Location: /index.php?action=activconfirm?status=ok');
-        $_SESSION['usr_id'] = $ret;
-    }
+        header('Location: /index.php');
 }
 
 function resetPassword()
 {
     global $_ROOT;
 
-    if (isset($_GET['resetkey']))
+    if (isset($_GET['resetkey']) && $_GET['resetkey'] != 0)
     {
         $usrMgmt = new UserManager();
         $req = $usrMgmt->getUsrIdFromResetKey($_GET['resetkey']);

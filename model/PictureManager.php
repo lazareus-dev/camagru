@@ -12,6 +12,17 @@ class PictureManager extends Manager
         return $req;
     }
 
+    public function paginateAllPictures($start, $limit)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT pic_path, pic_id, usr_id FROM PICTURE ORDER BY pic_date DESC LIMIT :start, :limit');
+        $req->bindValue(':start', (int) $start, PDO::PARAM_INT);
+        $req->bindValue(':limit', (int) $limit, PDO::PARAM_INT);
+        $req->execute();
+
+        return $req;
+    }
+
     public function addPicture($usr_id, $img_path)
     {
         $db = $this->dbConnect();

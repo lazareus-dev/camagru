@@ -17,15 +17,14 @@ function montagePage()
     require($_ROOT."/view/montage.php");
 }
 
-function displayAllPictures()
+function displayAllPictures($page)
 {
     global $_ROOT;
 
     $usrMgmt = new UserManager();
     $picMgmt = new PictureManager();
 
-    $pictures = $picMgmt->getAllPictures();
-
+    require($_ROOT."/middleware/paginate_pic.php");
     require($_ROOT."/view/main_gallery.php");
 }
 

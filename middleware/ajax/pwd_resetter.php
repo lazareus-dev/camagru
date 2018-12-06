@@ -16,10 +16,9 @@ if ($ret != "")
     echo $ret;
 else
 {
-    echo 'key = ' . $_POST['resetkey'];
     $req = $usrMgmt->getUsrIdFromResetKey($_POST['resetkey']);
     $usr_id = $req->fetch()['usr_id'];
-    echo 'usr id = ' . $usr_id;
     $usrMgmt->updatePassword($usr_id, $_POST['pwd']);
     $usrMgmt->deleteResetKey($usr_id);
+    echo 'Please try to login with your new password';
 }

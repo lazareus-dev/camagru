@@ -25,6 +25,7 @@ function resetPasswd(pwd, resetKey) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             alert(this.responseText);
+            window.location.replace('/index.php?action=signin');
         }
     };
     var data = "pwd=" + pwd + "&resetkey=" + resetKey.value;
