@@ -7,7 +7,7 @@
         <input type="email" id="email" required name="email">
 
         <label for="login">Login</label>
-        <input type="text" id="login" required name="login">
+        <input type="text" id="login" required name="login" maxlength="64">
 
         <label for="passwd">Password</label>
         <input type="password" id="passwd" required name="passwd" require minlength="8">

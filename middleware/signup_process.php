@@ -11,7 +11,9 @@ $usrMgmt = new UserManager();
 
 if (isset($_POST['signup']))
 {
-    if (isset($_POST['login']) && isset($_POST['email']) && isset($_POST['passwd']))
+    if (isset($_POST['login']) && $_POST['login'] != ""
+        && isset($_POST['email'])&& $_POST['login'] != ""
+        && isset($_POST['passwd']) && $_POST['login'] != "")
     {
         $login = htmlspecialchars($_POST['login']);
         $email = $_POST['email'];

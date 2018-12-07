@@ -109,7 +109,8 @@ class PictureManager extends Manager
         
         $db = $this->dbConnect();
         $delcom = $db->prepare('DELETE FROM COMMENT WHERE pic_id=?');
-        if (!$delcom->execute(array($pic_id)))
+        $dellike = $db->prepare('DELETE FROM LIKES WHERE pic_id=?');
+        if (!$delcom->execute(array($pic_id)) || !$dellike->execute(array($pic_id)))
             return 0;
         $req = $db->prepare('DELETE FROM PICTURE WHERE pic_id=?');
         if ($affectedLines = $req->execute(array($pic_id)))
@@ -120,5 +121,32 @@ class PictureManager extends Manager
         }
 
         return $affectedLines;
+    }
+
+    public function likePicture($pic_id, $usr_id)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('INSERT INTO LIKES (pic_id, usr_id) VALUES (?, ?)');
+        $req->execute(array($pic_id, $usr_id));
+
+        return $req->rowCount();
+    }
+
+    public function dislikePicture($pic_id, $usr_id)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('DELETE FROM LIKES WHERE pic_id=? AND usr_id=?');
+        $affectedLines = $req->execute(array($pic_id, $usr_id));
+
+        return $affectedLines;
+    }
+
+    public function isLikedByUser($pic_id, $usr_id)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT usr_id FROM LIKES WHERE pic_id=? AND usr_id=?');
+        $req->execute(array($pic_id, $usr_id));
+
+        return $req->rowCount();
     }
 }

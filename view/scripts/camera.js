@@ -48,7 +48,7 @@ navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
     player.srcObject = stream;
     captureButton.disabled = false;
 }).catch(function(err) {
-    console.log('Camera disabled');
+    // console.log('Camera disabled');
 });
 
 function drawUploadedImage(formData) {
@@ -59,7 +59,7 @@ function drawUploadedImage(formData) {
     xmlhttp.open("POST", "/middleware/draw_upload.php", true);
     xmlhttp.onload = function() {
         if (xmlhttp.status === 200) {
-            if (this.responseText != 'ERROR') {
+            if ((this.responseText).search('ERROR') == -1) {
                 up_context.clearRect(0, 0, up_canvas.width, up_canvas.height);
                 cam_context.clearRect(0, 0, cam_canvas.width, cam_canvas.height);
                 var toDraw = new Image();
@@ -68,12 +68,16 @@ function drawUploadedImage(formData) {
                     cam_context.drawImage(toDraw, 0, 0, cam_canvas.width, cam_canvas.height);
                 }
                 toDraw.src = this.responseText;
-                uploadBtn.innerHTML = 'Upload';
-                captureButton.disabled = false;
                 if (player.srcObject)
                     player.srcObject.getVideoTracks().forEach(track => track.stop());
                 uploadedImage = true;
+                captureButton.disabled = false;
+            } else {
+                var errno = (this.responseText).slice(6);
+                if (errno == 'ext')
+                    alert('Bad file type');
             }
+            uploadBtn.innerHTML = 'Upload';
         }
     };
     xmlhttp.send(formData);
