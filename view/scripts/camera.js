@@ -37,6 +37,10 @@ uploadForm.onsubmit = function(event) {
     var file = fileSelect.files[0];
     if (!file)
         return ;
+    if (file.size > 2000000) {
+        alert('File too big, max is 2Mo');
+        return ;
+    }
     uploadBtn.innerHTML = 'Uploading';
     var formData = new FormData();
     formData.append('up_file', file, file.name);
@@ -59,6 +63,7 @@ function drawUploadedImage(formData) {
     xmlhttp.open("POST", "/middleware/draw_upload.php", true);
     xmlhttp.onload = function() {
         if (xmlhttp.status === 200) {
+            console.log(this.responseText);
             if ((this.responseText).search('ERROR') == -1) {
                 up_context.clearRect(0, 0, up_canvas.width, up_canvas.height);
                 cam_context.clearRect(0, 0, cam_canvas.width, cam_canvas.height);
