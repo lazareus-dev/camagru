@@ -121,6 +121,13 @@ input[type=submit]:hover {
   margin-bottom: 10px;
 }
 
+.navigation img {
+  max-width: 18px;
+  border: 1px solid #cecece;
+  border-radius: 3px;
+  padding: 3px;
+}
+
 .connect-form {
   display: flex;
   flex-direction: column;

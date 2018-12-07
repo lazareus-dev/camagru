@@ -6,16 +6,9 @@
 <?php } else { ?>
 <h1>Hello <?= 'visitor' ?></h1>
 <?php } ?>
-<div class="navigation">
-<?php if ($page > 1) { ?>
-    <a href="?page=<?= $page - 1; ?>">Previous</a>
-    —
-<?php } ?>
-<?php if ($page < $nbPages) { ?>
-    <a href="?page=<?= $page + 1; ?>">Next</a>
-<?php } ?>
-</div>
+
 <script src="/view/scripts/open_picture.js"></script>
+<?php include("navigation.php"); ?> 
     <?php
         while ($pic = $pictures->fetch())
         {
@@ -30,15 +23,8 @@
             echo '</div>';
         }
     ?>
-<div class="navigation">
-<?php if ($page > 1) { ?>
-    <a href="?page=<?= $page - 1; ?>">Previous</a>
-    —
-<?php } ?>
-<?php if ($page < $nbPages) { ?>
-    <a href="?page=<?= $page + 1; ?>">Next</a>
-<?php } ?>
-</div>
+
+<?php include("navigation.php"); ?> 
 </div>
 <?php $content = ob_get_clean(); ?>
 <?php require($_ROOT."/view/template/template.php"); ?>

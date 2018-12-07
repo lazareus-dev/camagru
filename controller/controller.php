@@ -25,7 +25,7 @@ function displayAllPictures($page)
     $picMgmt = new PictureManager();
 
     require($_ROOT."/middleware/paginate_pic.php");
-    require($_ROOT."/view/main_gallery.php");
+    require($_ROOT."/view/main_gallery/main_gallery.php");
 }
 
 function pageNotFound()
