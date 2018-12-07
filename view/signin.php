@@ -9,10 +9,10 @@
     <form action="index.php?action=signin" method="POST">
         
         <label for="login">Login</label>
-        <input type="text" id="login" required name="login">
+        <input type="text" id="login" required name="login" maxlength="64">
 
         <label for="passwd">Password</label>
-        <input type="password" id="passwd" required name="passwd">
+        <input type="password" id="passwd" required name="passwd" maxlength="124">
 
         <input type="submit" name="signin" value="connect">
     </form>

@@ -12,6 +12,7 @@ function addComment() {
         return false;
     }
     submitBtn.innerHTML = "sending...";
+    submitBtn.disabled = true;
     if (window.XMLHttpRequest)
         xmlhttp = new XMLHttpRequest();
     else
@@ -22,6 +23,7 @@ function addComment() {
             cmtArea.value = "";
             updateCommentDisplay();
             submitBtn.innerHTML = "publish";
+            submitBtn.disabled = false;
         }
     };
     var data = "pic_id=" + submitBtn.name + "&comment=" + cmtArea.value;

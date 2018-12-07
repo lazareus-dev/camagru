@@ -4,13 +4,13 @@
 <div class="connect-form">
     <form action="index.php?action=signup" method="POST">
         <label for="email">E-mail</label>
-        <input type="email" id="email" required name="email">
+        <input type="email" id="email" required name="email" maxlength="320">
 
         <label for="login">Login</label>
         <input type="text" id="login" required name="login" maxlength="64">
 
         <label for="passwd">Password</label>
-        <input type="password" id="passwd" required name="passwd" require minlength="8">
+        <input type="password" id="passwd" maxlength="124" required name="passwd" require minlength="8">
 
         <input type="submit" name="signup" value="signup">
     </form>

@@ -7,7 +7,7 @@
        
        <div class="input-block"> 
         <label for="login">Login</label>
-        <input type="text" id="login" name="login" value="<?= $_SESSION['login'] ?>">
+        <input type="text" id="login" name="login" maxlength="64" value="<?= $_SESSION['login'] ?>">
        </div>
 
        <div class="input-block"> 
@@ -17,17 +17,17 @@
 
        <div class="input-block"> 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" value="<?= $_SESSION['email'] ?>">
+        <input type="email" id="email" name="email" maxlength="320" value="<?= $_SESSION['email'] ?>">
        </div>
 
        <div class="input-block"> 
         <label for="oldpasswd">Old Password</label>
-        <input type="password" id="oldpasswd" name="oldpasswd">
+        <input type="password" id="oldpasswd" name="oldpasswd" maxlength="124">
        </div>
 
        <div class="input-block"> 
         <label for="newpasswd">New Password</label>
-        <input type="password" id="newpasswd" name="newpasswd" require minlength="8">
+        <input type="password" id="newpasswd" name="newpasswd" maxlength="124" require minlength="8">
        </div>
 
        <div class="input-block"> 

@@ -4,7 +4,7 @@
     <form id="mail-reset-form" action="" method="POST">
         
         <label for="email">E-mail</label>
-        <input type="email" id="email" required name="email">
+        <input type="email" id="email" required name="email" maxlength="320">
 
         <input type="submit" id="submit" name="signin" value="send activation link">
     </form>
