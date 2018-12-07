@@ -1,5 +1,11 @@
 <?php
 
+if (!isset($_ROOT) || !isset($_POST['signin']) || !isset($_POST['login']) || !isset($_POST['passwd']))
+{
+    header('Location: /index.php');
+    die();
+}
+
 require_once($_ROOT."/model/UserManager.php");
 
 $login = "";

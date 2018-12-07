@@ -1,5 +1,13 @@
 <?php
 
+if (!isset($_ROOT) || !isset($_POST['signup'])
+|| !isset($_POST['login']) || !isset($_POST['passwd'])
+|| !isset($_POST['email']))
+{
+    header('Location: /index.php');
+    die();
+}
+
 require_once($_ROOT."/model/UserManager.php");
 
 $login = "";

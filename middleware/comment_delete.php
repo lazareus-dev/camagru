@@ -6,7 +6,7 @@ require_once("/var/www/html/model/CommentManager.php");
 
 if (!isset($_POST['cmt_id']))
 {
-    throw new Exception("A problem occured");
+    header('Location: /index.php');
     die();
 }
 

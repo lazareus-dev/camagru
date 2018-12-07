@@ -8,7 +8,7 @@ require_once("/var/www/html/controller/mail.php");
 if (!isset($_POST['pic_id']) || !isset($_POST['comment'])
     || !isset($_SESSION['usr_id']) || $_SESSION['usr_id'] < 1)
 {
-    throw new Exception("A problem occured");
+    header('Location: /index.php');
     die();
 }
 

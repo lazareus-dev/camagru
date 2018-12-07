@@ -1,7 +1,10 @@
 <?php
 
 if (!isset($_GET['pic_id']))
+{
+    header('Location: /index.php');
     die();
+}
 
 require_once("/var/www/html/model/PictureManager.php");
 require_once($_ROOT."/model/UserManager.php");

@@ -1,9 +1,13 @@
 <?php
 
-require_once($_ROOT."/model/UserManager.php");
 
 if (!isset($_SESSION['usr_id']) || $_SESSION['usr_id'] < 1)
+{
+    header('Location: /index.php');
     die();
+}
+
+require_once($_ROOT."/model/UserManager.php");
 
 $userMgmt = new UserManager();
 
