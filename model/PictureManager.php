@@ -115,7 +115,7 @@ class PictureManager extends Manager
         $req = $db->prepare('DELETE FROM PICTURE WHERE pic_id=?');
         if ($affectedLines = $req->execute(array($pic_id)))
         {
-            $path = '/var/www/html/' . $picture['pic_path'];
+            $path = '/var/www/html/public/' . $picture['pic_path'];
             if (file_exists($path))
                 unlink($path);
         }

@@ -19,5 +19,5 @@ function profilePage()
         $picReq = $picMgmt->getAllUserPics($_GET['profile_id']);
     else
         $picReq = $picMgmt->getAllUserPics($_SESSION['usr_id']);
-    require($_ROOT."/view/profile.php");
+    require("../public/view/profile.php");
 }

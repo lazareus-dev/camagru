@@ -10,6 +10,6 @@ function displaySinglePicture()
         signinForm($login_first);
         die();
     }
-    require($_ROOT."/middleware/pic_info_getter.php");
-    require($_ROOT."/view/display_single_picture.php");
+    require("../middleware/pic_info_getter.php");
+    require("../public/view/display_single_picture.php");
 }

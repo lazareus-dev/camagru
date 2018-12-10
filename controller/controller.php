@@ -14,7 +14,7 @@ function montagePage()
         return ;
     }
 
-    require($_ROOT."/view/montage.php");
+    require("../public/view/montage.php");
 }
 
 function displayAllPictures($page)
@@ -25,7 +25,7 @@ function displayAllPictures($page)
     $picMgmt = new PictureManager();
 
     require($_ROOT."/middleware/paginate_pic.php");
-    require($_ROOT."/view/main_gallery/main_gallery.php");
+    require("../public/view/main_gallery/main_gallery.php");
 }
 
 function pageNotFound()

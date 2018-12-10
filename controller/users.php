@@ -5,25 +5,22 @@ require_once($_ROOT."/model/UserManager.php");
 function signinForm($login_first)
 {
     global $_ROOT;
-
     if (isset($_SESSION['usr_id']) && $_SESSION['usr_id'] > 0)
         header('Location: /index.php?action=profile');
     else if (isset($_POST['signin']))
         require($_ROOT."/middleware/signin_process.php");
     else
-        require($_ROOT."/view/signin.php");
+        require("../public/view/signin.php");
 }
 
 function signupForm()
 {
-    global $_ROOT;
-
     if (isset($_SESSION['usr_id']) && $_SESSION['usr_id'] > 0)
         header('Location: /index.php?action=profile');
     else if (isset($_POST['signup']))
         require($_ROOT."/middleware/signup_process.php");
     else
-        require($_ROOT."/view/signup.php");
+        require("../public/view/signup.php");
 }
 
 function confirmAccount($activkey)
@@ -40,17 +37,15 @@ function confirmAccount($activkey)
 
 function resetPassword()
 {
-    global $_ROOT;
-
     if (isset($_GET['resetkey']) && $_GET['resetkey'] != 0)
     {
         $usrMgmt = new UserManager();
         $req = $usrMgmt->getUsrIdFromResetKey($_GET['resetkey']);
         if ($req->rowCount() != 0)
-            require($_ROOT."/view/reset_passwd.php");
+            require("../public/view/reset_passwd.php");
         else
             header('Location: /index.php');
     }
     else
-        require($_ROOT."/view/reset_passwd_mail.php");
+        require("../public/view/reset_passwd_mail.php");
 }
