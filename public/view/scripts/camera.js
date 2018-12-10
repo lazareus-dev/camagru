@@ -63,7 +63,6 @@ function drawUploadedImage(formData) {
     xmlhttp.open("POST", "/ajax/draw_upload.php", true);
     xmlhttp.onload = function() {
         if (xmlhttp.status === 200) {
-            console.log(this.responseText);
             if ((this.responseText).search('ERROR') == -1) {
                 up_context.clearRect(0, 0, up_canvas.width, up_canvas.height);
                 cam_context.clearRect(0, 0, cam_canvas.width, cam_canvas.height);

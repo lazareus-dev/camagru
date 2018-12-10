@@ -13,6 +13,6 @@ function settingsPage()
     else
     {
         require($_ROOT."/middleware/settings_getter.php");
-        require($_ROOT."/view/settings.php");
+        require("../public/view/settings.php");
     }
 }

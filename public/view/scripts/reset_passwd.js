@@ -24,12 +24,10 @@ function resetPasswd(pwd, resetKey) {
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            alert(this.responseText);
             window.location.replace('/index.php?action=signin');
         }
     };
     var data = "pwd=" + pwd + "&resetkey=" + resetKey.value;
-    console.log(data);
     xmlhttp.open("POST", "/ajax/pwd_resetter.php", true);
     xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xmlhttp.send(data);

@@ -23,8 +23,13 @@ settings_form.onsubmit = function (event) {
         document.getElementById('oldpasswd').focus();
         return false;
     }
-    settingsValidation();
-    updateLogin();
+    if (settingsValidation())
+        updateLogin();
+    else
+    {
+        alert("No changes to apply");
+        return false;
+    }
     return true;
 }
 
@@ -65,9 +70,12 @@ function settingsValidation() {
         data += "newpasswd=" + newpasswd + "&oldpasswd=" + oldpasswd;
     }
     if (data != "")
+    {
         applySettings(data);
+        return (1);
+    }
     else
-        alert("No changes to apply");
+        return (0);
 }
 
 function applySettings(data) {

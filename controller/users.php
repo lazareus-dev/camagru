@@ -5,6 +5,7 @@ require_once($_ROOT."/model/UserManager.php");
 function signinForm($login_first)
 {
     global $_ROOT;
+
     if (isset($_SESSION['usr_id']) && $_SESSION['usr_id'] > 0)
         header('Location: /index.php?action=profile');
     else if (isset($_POST['signin']))
@@ -15,6 +16,8 @@ function signinForm($login_first)
 
 function signupForm()
 {
+    global $_ROOT;
+
     if (isset($_SESSION['usr_id']) && $_SESSION['usr_id'] > 0)
         header('Location: /index.php?action=profile');
     else if (isset($_POST['signup']))

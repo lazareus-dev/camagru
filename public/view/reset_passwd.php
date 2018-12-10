@@ -6,7 +6,7 @@
         <input type="password" id="newpasswd" name="newpasswd" maxlength="124" required require minlength="8">
 
         <label for="newpasswd2">Confirm Password</label>
-        <input type="password" id="newpasswd2" name="newpasswd2" maxlength="124" required require minlength="8">
+        <input type="password" id="newpasswd2" name="newpasswd2" maxlength="124" required require minlength="8" autocomplete="password">
         
         <label for="reset"></label>
         <input type="submit" id="reset" name="reset" value="reset">

@@ -3,6 +3,9 @@ const miniGallery = document.getElementById('gallery-content');
 updateMiniGallery();
 
 function pictureProcess(sticker_id) {
+    console.log(sticker_id);
+    if (sticker_id < 0 || sticker_id > 6 || !sticker_id)
+        sticker_id = 1;
     var dataURL = encodeURIComponent(canvas.toDataURL('image/jpeg', 1.0));
 
     if (window.XMLHttpRequest)

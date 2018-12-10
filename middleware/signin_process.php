@@ -24,7 +24,7 @@ if (isset($_POST['signin']))
         {
             $message='Wrong Login or Password';
             echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
-            require($_ROOT."/view/signin.php");
+            require("../public/view/signin.php");
         }
         else
         {

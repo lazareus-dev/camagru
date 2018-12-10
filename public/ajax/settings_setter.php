@@ -1,3 +1,3 @@
 <?php
 
-require_once('../../middleware/ajax/settings_resetter.php');
+require_once('../../middleware/ajax/settings_setter.php');

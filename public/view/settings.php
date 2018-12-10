@@ -7,7 +7,7 @@
        
        <div class="input-block"> 
         <label for="login">Login</label>
-        <input type="text" id="login" name="login" maxlength="64" value="<?= $_SESSION['login'] ?>">
+        <input type="text" id="login" name="login" maxlength="64" value="<?= $_SESSION['login'] ?>" autocomplete="username">
        </div>
 
        <div class="input-block"> 
@@ -22,12 +22,12 @@
 
        <div class="input-block"> 
         <label for="oldpasswd">Old Password</label>
-        <input type="password" id="oldpasswd" name="oldpasswd" maxlength="124">
+        <input type="password" id="oldpasswd" name="oldpasswd" maxlength="124" autocomplete="old-password">
        </div>
 
        <div class="input-block"> 
         <label for="newpasswd">New Password</label>
-        <input type="password" id="newpasswd" name="newpasswd" maxlength="124" require minlength="8">
+        <input type="password" id="newpasswd" name="newpasswd" maxlength="124" require minlength="8" autocomplete="new-password">
        </div>
 
        <div class="input-block"> 

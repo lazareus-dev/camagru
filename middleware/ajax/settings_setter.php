@@ -3,9 +3,9 @@ if (!isset($_SESSION))
     session_start();
 require_once("/var/www/html/model/UserManager.php");
 
-if (!isset($_SESSION['usr_id']))
+if (!isset($_SESSION['usr_id']) || $_SESSION['usr_id'] < 1)
 {
-    throw new Exception("A problem occured");
+    header('Location: /index.php');
     die();
 }
 
@@ -17,6 +17,7 @@ $ret += settingsLogin($usrMgmt);
 $ret += settingsEmail($usrMgmt);
 $ret += settingsNotif($usrMgmt);
 $ret += settingsPasswd($usrMgmt);
+
 if ($errors != "")
     echo $errors;
 else if ($ret != 0)

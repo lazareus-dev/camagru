@@ -16,7 +16,6 @@ function sendResetMail(mail) {
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            alert(this.responseText);
         }
     };
     var data = "mail=" + mail;

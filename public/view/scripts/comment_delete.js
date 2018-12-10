@@ -9,7 +9,7 @@ function deleteComment(commentId) {
         }
     };
     var data = "cmt_id=" + commentId;
-    xmlhttp.open("POST", "/middleware/comment_delete.php", true);
+    xmlhttp.open("POST", "/ajax/comment_delete.php", true);
     xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xmlhttp.send(data);
 }

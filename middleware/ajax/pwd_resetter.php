@@ -3,7 +3,7 @@
 if (!isset($_POST['pwd']) || empty($_POST['pwd'])
     || !isset($_POST['resetkey']) || empty($_POST['resetkey']))
 {
-    echo 'Error';
+    header('Location: /index.php');
     die();
 }
 

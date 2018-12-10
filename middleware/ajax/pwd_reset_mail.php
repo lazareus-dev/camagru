@@ -2,7 +2,7 @@
 
 if (!isset($_POST['mail']) || empty($_POST['mail']))
 {
-    echo 'Error';
+    header('Location: /index.php');
     die();
 }
 
