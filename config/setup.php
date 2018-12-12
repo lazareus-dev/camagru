@@ -47,7 +47,8 @@ $req = $pdo->prepare("CREATE TABLE IF NOT EXISTS `USER` (
     `usr_activated` tinyint(1) NOT NULL DEFAULT '0',
     `usr_notif` tinyint(1) NOT NULL DEFAULT '1',
     `usr_activkey` varchar(255) NOT NULL DEFAULT '0',
-    `usr_resetkey` varchar(255) NOT NULL DEFAULT '0'
+    `usr_resetkey` varchar(255) NOT NULL DEFAULT '0',
+    `usr_pp` tinyint(4) NOT NULL DEFAULT '1'
   ) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
 $req->execute();
 
@@ -87,3 +88,5 @@ $req = $pdo->prepare("ALTER TABLE `PICTURE`
   ADD CONSTRAINT `PICTURE_ibfk_1` FOREIGN KEY (`usr_id`) REFERENCES `USER` (`usr_id`);
 COMMIT;");
 $req->execute();
+
+rename(__FILE__, __FILE__.'.bak');
