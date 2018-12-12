@@ -21,12 +21,12 @@ class UserManager extends Manager
         return $req;
     }
 
-    public function createUser($usr_login, $usr_mail, $hashpass, $activkey)
+    public function createUser($usr_login, $usr_mail, $usr_pp, $hashpass, $activkey)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('INSERT INTO USER(usr_login, usr_mail, usr_passwd, usr_activkey)
-        VALUES(?, ?, ?, ?)');
-        $affectedLines = $req->execute(array($usr_login, $usr_mail, $hashpass, $activkey));
+        $req = $db->prepare('INSERT INTO USER(usr_login, usr_mail, usr_pp, usr_passwd, usr_activkey)
+        VALUES(?, ?, ?, ?, ?)');
+        $affectedLines = $req->execute(array($usr_login, $usr_mail, $usr_pp, $hashpass, $activkey));
 
         return $affectedLines;
     }
@@ -135,6 +135,15 @@ class UserManager extends Manager
         $req->execute(array($usr_id));
 
         return $req->fetch()['usr_login'];
+    }
+    
+    public function getPpFromId($usr_id)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT usr_pp FROM USER WHERE usr_id=?');
+        $req->execute(array($usr_id));
+
+        return $req->fetch()['usr_pp'];
     }
 
     public function activateUser($received_key)

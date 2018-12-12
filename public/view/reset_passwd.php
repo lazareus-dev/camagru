@@ -12,11 +12,11 @@
         <input type="submit" id="reset" name="reset" value="reset">
     </form>
     <input type="hidden" id="resetkey" name="resetkey" value="<?= $_GET['resetkey'] ?>">
-    <a class="nodecolink" href='/index.php?action=signin'>Back to sign-in</a>
+    <a class="nodecolink" href='/signin'>Back to sign-in</a>
 </div>
 
 <div class="connect-form">
-    <p>No Account ? <a href="/index.php?action=signup">Signup here !</a></p>
+    <p>No Account ? <a href="/signup">Signup here !</a></p>
 </div>
 <script src="/view/scripts/reset_passwd.js"></script>
 

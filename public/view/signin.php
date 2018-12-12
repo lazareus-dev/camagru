@@ -6,7 +6,7 @@
 <h2>Welcome back</h2>
 <?php } ?>
 <div class="connect-form">
-    <form action="index.php?action=signin" method="POST">
+    <form action="/signin" method="POST">
         
         <label for="login">Login</label>
         <input type="text" id="login" required name="login" maxlength="64" autocomplete="username">
@@ -16,11 +16,11 @@
 
         <input type="submit" name="signin" value="connect">
     </form>
-    <a class="nodecolink" href='/index.php?action=resetpwd'> Password forgotten ?</a>
+    <a class="nodecolink" href='/reset-password'> Password forgotten ?</a>
 </div>
 
 <div class="connect-form">
-    <p>No Account ? <a href="/index.php?action=signup">Signup here !</a></p>
+    <p>No Account ? <a href="/signup">Signup here !</a></p>
 </div>
 
 <?php $content = ob_get_clean(); ?>

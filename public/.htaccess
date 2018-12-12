@@ -1,0 +1,11 @@
+Options +FollowSymlinks
+RewriteEngine on
+RewriteRule ^gallery$ /index.php [L]
+RewriteRule ^montage$ /index.php?action=montage [L]
+RewriteRule ^profile$ /index.php?action=profile [L]
+RewriteRule ^signin$ /index.php?action=signin [L]
+RewriteRule ^signup$ /index.php?action=signup [L]
+RewriteRule ^settings$ /index.php?action=settings [L]
+RewriteRule ^logout$ /index.php?action=logout [L]
+RewriteRule ^reset-password$ /index.php?action=resetpwd [L]
+RewriteRule ^picture-([0-9]+)$ /index.php?action=display&pic_id=$1 [L]

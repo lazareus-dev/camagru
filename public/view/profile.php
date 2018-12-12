@@ -3,6 +3,7 @@
 <div id="main-profile">
 <script src="/view/scripts/open_picture.js"></script>
 <script src="/view/scripts/likes.js"></script>
+    <img src="/images/pp/<?= $pp ?>.png">
     <?php
         if ($picReq->rowCount() == 0)
             echo '<a href="/index.php?action=montage">Try taking pictures up here !</a>';

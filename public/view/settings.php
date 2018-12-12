@@ -7,7 +7,7 @@
        
        <div class="input-block"> 
         <label for="login">Login</label>
-        <input type="text" id="login" name="login" maxlength="64" value="<?= $_SESSION['login'] ?>" autocomplete="username">
+        <input type="text" id="login" name="login" required maxlength="64" value="<?= $_SESSION['login'] ?>" autocomplete="username">
        </div>
 
        <div class="input-block"> 
@@ -17,7 +17,7 @@
 
        <div class="input-block"> 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" maxlength="320" value="<?= $_SESSION['email'] ?>">
+        <input type="email" id="email" name="email" required maxlength="320" value="<?= $_SESSION['email'] ?>">
        </div>
 
        <div class="input-block"> 

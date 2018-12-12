@@ -46,13 +46,13 @@ function settingsValidation() {
     var oldpasswd = oldpwd_input.value;
     var data = "";
 
-    if (new_login != orig_login)
+    if (new_login != orig_login && new_login.trim() != "")
     {
         data += "login=" + new_login;
-        login.value = new_login;
-        orig_login = new_login;
+        // login.value = new_login;
+        // orig_login = new_login;
     }
-    if (new_mail != orig_mail)
+    if (new_mail != orig_mail && new_mail.trim() != "")
     {
         if (data != "") data += '&';
         data += "email=" + new_mail;
@@ -86,6 +86,7 @@ function applySettings(data) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             alert(this.responseText);
+            window.open("/settings", "_self");
         }
     };
     xmlhttp.open("POST", "/ajax/settings_setter.php", true);

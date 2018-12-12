@@ -1,5 +1,6 @@
 const mail_input = document.getElementById('email');
 const form = document.getElementById('mail-reset-form');
+const submitBtn = document.getElementById('submit');
 
 form.onsubmit = function(event) {
     event.preventDefault();
@@ -7,6 +8,7 @@ form.onsubmit = function(event) {
     if (mail.trim() == "")
         return false;
     sendResetMail(mail);
+    submitBtn.value = "sending mail..."
 }
 
 function sendResetMail(mail) {
@@ -16,6 +18,8 @@ function sendResetMail(mail) {
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
+            submitBtn.value = "mail sent";
+            submitBtn.disabled = true;
         }
     };
     var data = "mail=" + mail;

@@ -30,7 +30,5 @@ function displayAllPictures($page)
 
 function pageNotFound()
 {
-    global $_ROOT;
-
-    require($_ROOT."/view/page_not_found.php");
+    require("../public/view/page_not_found.php");
 }

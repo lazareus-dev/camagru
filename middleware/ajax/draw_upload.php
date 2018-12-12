@@ -3,7 +3,7 @@
 if (!isset($_FILES['up_file']))
 {
     echo 'ERROR';
-    header("Location: /index.php?action=montage");
+    header("Location: /montage");
     die();
 }
 

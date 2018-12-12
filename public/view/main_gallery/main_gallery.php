@@ -21,6 +21,7 @@
         while ($pic = $pictures->fetch())
         {
             $owner_id = $usrMgmt->getLoginFromId($pic['usr_id']);
+            $pp = $usrMgmt->getPpFromId($pic['usr_id']);
             $nb_likes = $picMgmt->getNumberOfLikes($pic['pic_id'])[0];
             $nb_cmts = $picMgmt->getNumberOfComments($pic['pic_id'])[0];
             $is_liked = $picMgmt->isLikedByUser($pic['pic_id'], $usr_id);

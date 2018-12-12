@@ -64,7 +64,7 @@ function sendNotificationMail($type, $pic_id, $comment)
     if ($user_datas['usr_notif'] == 0 || !$mail)
         die();
 
-    $piclink = 'http://localhost:8008/index.php?action=display&pic_id=' . $pic_id;
+    $piclink = 'http://localhost:8008/picture-' . $pic_id;
 
     if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $mail)) 
     	$passage_ligne = "\r\n";

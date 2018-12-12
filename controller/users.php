@@ -7,7 +7,7 @@ function signinForm($login_first)
     global $_ROOT;
 
     if (isset($_SESSION['usr_id']) && $_SESSION['usr_id'] > 0)
-        header('Location: /index.php?action=profile');
+        header('Location: /profile');
     else if (isset($_POST['signin']))
         require($_ROOT."/middleware/signin_process.php");
     else
@@ -19,7 +19,7 @@ function signupForm()
     global $_ROOT;
 
     if (isset($_SESSION['usr_id']) && $_SESSION['usr_id'] > 0)
-        header('Location: /index.php?action=profile');
+        header('Location: /profile');
     else if (isset($_POST['signup']))
         require($_ROOT."/middleware/signup_process.php");
     else

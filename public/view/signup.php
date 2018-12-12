@@ -2,7 +2,7 @@
 
 <h2>Welcome newbie!</h2>
 <div class="connect-form">
-    <form action="index.php?action=signup" method="POST">
+    <form action="/signup" method="POST">
         <label for="email">E-mail</label>
         <input type="email" id="email" required name="email" maxlength="320">
 
@@ -17,7 +17,7 @@
 </div>
 
 <div class="connect-form">
-    <p>Already Have An Account ? <a href="/index.php?action=signin">Connect here !</a></p>
+    <p>Already Have An Account ? <a href="/signin">Connect here !</a></p>
 </div>
 
 <?php $content = ob_get_clean(); ?>

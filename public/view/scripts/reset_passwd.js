@@ -24,7 +24,7 @@ function resetPasswd(pwd, resetKey) {
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            window.location.replace('/index.php?action=signin');
+            window.location.replace('/signin');
         }
     };
     var data = "pwd=" + pwd + "&resetkey=" + resetKey.value;

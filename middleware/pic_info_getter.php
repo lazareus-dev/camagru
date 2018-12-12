@@ -22,6 +22,7 @@ if ($req->rowCount() == 0)
 
 $pic = $req->fetch();
 $owner_id = $usrMgmt->getLoginFromId($pic['usr_id']);
+$pp = $usrMgmt->getPpFromId($pic['usr_id']);
 $nb_likes = $picMgmt->getNumberOfLikes($pic['pic_id'])[0];
 $nb_comments = $picMgmt->getNumberOfComments($pic['pic_id']);
 $is_liked = 0;

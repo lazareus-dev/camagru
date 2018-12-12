@@ -32,12 +32,12 @@ if (isset($_POST['signin']))
             if ($user['usr_activated'] == 1)
             {
                 $_SESSION['usr_id'] = $userMgmt->getUserId($user);
-                header('Location: /index.php?action=profile');
+                header('Location: /profile');
             }
             else
-                header('Location: /index.php?action=signup');
+                header('Location: /signup');
         }
     }
 }
 else
-    require($_ROOT."/index.php?action=signup");
+    header('Location: /signup');

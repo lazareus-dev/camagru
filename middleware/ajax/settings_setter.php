@@ -29,7 +29,8 @@ function settingsLogin($usrMgmt)
 {
     global $errors;
 
-    if (isset($_POST['login']) && ($_POST['login'] !== $_SESSION['login']))
+    if (isset($_POST['login']) && ($_POST['login'] !== $_SESSION['login'])
+        && !empty($_POST['login']))
     {
         $new_login = htmlspecialchars($_POST['login']);
         if (!$usrMgmt->checkIfLoginExists($new_login))
@@ -89,10 +90,15 @@ function settingsPasswd($usrMgmt)
         {
             $errors .= 'Old Password must be filled';
         }
-        else if ($usrMgmt->checkPassword($_SESSION['usr_id'], $_POST['oldpasswd']))
+        else
         {
-            $usrMgmt->updatePassword($_SESSION['usr_id'], $_POST['newpasswd']);
-            return (1);
+            if ($usrMgmt->checkPassword($_SESSION['usr_id'], $_POST['oldpasswd']))
+            {
+                $usrMgmt->updatePassword($_SESSION['usr_id'], $_POST['newpasswd']);
+                return (1);
+            }
+            else
+                $errors .= 'Wrong old password';
         }
     }
 }

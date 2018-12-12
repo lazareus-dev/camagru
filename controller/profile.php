@@ -1,6 +1,7 @@
 <?php
 
 require_once($_ROOT."/model/PictureManager.php");
+require_once($_ROOT."/model/UserManager.php");
 
 function profilePage()
 {
@@ -14,10 +15,9 @@ function profilePage()
     }
 
     $picMgmt = new PictureManager();
+    $usrMgmt = new UserManager();
 
-    if (isset($_GET['profile_id']))
-        $picReq = $picMgmt->getAllUserPics($_GET['profile_id']);
-    else
-        $picReq = $picMgmt->getAllUserPics($_SESSION['usr_id']);
+    $picReq = $picMgmt->getAllUserPics($_SESSION['usr_id']);
+    $pp = $usrMgmt->getPpFromId($_SESSION['usr_id']);
     require("../public/view/profile.php");
 }

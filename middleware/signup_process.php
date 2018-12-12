@@ -41,7 +41,8 @@ if (isset($_POST['signup']))
         {
             $passwd = hash('Whirlpool', $_POST['passwd']);
             $activkey = hash('Whirlpool', uniqid());
-            $usrMgmt->createUser($login, $email, $passwd, $activkey);
+            $pp = rand(1, 8);
+            $usrMgmt->createUser($login, $email, $pp, $passwd, $activkey);
             $new_user = true;
             require($_ROOT.'/controller/mail.php');
             header('Location: /index.php');
@@ -49,4 +50,4 @@ if (isset($_POST['signup']))
     }
 }
 else
-    require($_ROOT."/index.php?action=signup");
+    header("Location: /signup");

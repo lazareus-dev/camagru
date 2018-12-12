@@ -2,6 +2,9 @@
 if (!isset($_SESSION))
     session_start();
 $_ROOT = getcwd()."/..";
+
+if (file_exists($_ROOT."/config/setup.php"))
+    require_once($_ROOT."/config/setup.php");
 require_once($_ROOT."/controller/users.php");
 require_once($_ROOT."/controller/controller.php");
 require_once($_ROOT."/controller/settings.php");
@@ -27,7 +30,7 @@ if (isset($_GET['action']))
     else if ($_GET['action'] == 'logout')
     {
         session_destroy();
-        header('Location: /index.php');
+        header('Location: /gallery');
     }
     else if ($_GET['action'] == 'confirm' && isset($_GET['activkey']))
         confirmAccount($_GET['activkey']);
