@@ -352,6 +352,7 @@ input[type=submit]:hover {
   flex-direction: row;
   justify-content: center;
   align-content: center;
+  min-height: 80px;
   width: 100%;
 }
 
