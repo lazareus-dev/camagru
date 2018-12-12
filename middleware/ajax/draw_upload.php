@@ -9,7 +9,7 @@ if (!isset($_FILES['up_file']))
 
 $valid_extensions = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
 $extension_upload = strtolower(substr(strrchr($_FILES['up_file']['name'], '.'), 1));
-if (!in_array($extension_upload, $valid_extensions))
+if (!in_array($extension_upload, $valid_extensions) || !exif_imagetype($_FILES['up_file']['tmp_name']))
 {
     echo 'ERROR=ext';
     die();
