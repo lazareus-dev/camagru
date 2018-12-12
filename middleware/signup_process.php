@@ -29,13 +29,13 @@ if (isset($_POST['signup']))
         {
             $message='Login or Email already exists';
             echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
-            require($_ROOT."/view/signup.php");
+            require("../public/view/signup.php");
         }
         else if ($usrMgmt->checkPwdStrength($_POST['passwd']) != "")
         {
             $message='Password must contain at least : 1 uppercase, 1 lowercase, 1 number, 1 special character';
             echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
-            require($_ROOT."/view/signup.php");
+            require("../public/view/signup.php");
         }
         else
         {
