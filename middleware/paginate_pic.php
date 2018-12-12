@@ -6,6 +6,8 @@ $limit = 5;
 $total = ($picMgmt->getAllPictures())->rowCount();
 
 $nbPages = ceil($total / $limit);
+if ($nbPages < 1)
+    $nbPages = 1;
 
 if ($page < 1)
     $page = 1;

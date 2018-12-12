@@ -4,7 +4,9 @@ if (!isset($_SESSION))
 $_ROOT = getcwd()."/..";
 
 if (file_exists($_ROOT."/config/setup.php"))
+{
     require_once($_ROOT."/config/setup.php");
+}
 require_once($_ROOT."/controller/users.php");
 require_once($_ROOT."/controller/controller.php");
 require_once($_ROOT."/controller/settings.php");

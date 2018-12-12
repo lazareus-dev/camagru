@@ -90,3 +90,5 @@ COMMIT;");
 $req->execute();
 
 rename(__FILE__, __FILE__.'.bak');
+
+$_SESSION['usr_id'] = -1;
